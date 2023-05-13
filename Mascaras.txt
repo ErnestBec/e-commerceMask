@@ -1,0 +1,76 @@
+**********PRODUCTOS*********
+create table Productos(
+id_prod int,
+nombre varchar(60),
+descripcion varchar(100),
+cantidad int,
+precio int,
+descuento float,
+calificacion int);
+
+alter table productos add constraint id_prod_Pk primary key (id_prod);
+
+******CATEGORIAS********
+create table Categorias(
+id_cat int,
+nom_cat varchar(60),
+id_prod int);
+
+alter table categorias add constraint id_cat_Pk primary key (id_cat);
+
+alter table categorias add constraint id_prod_Fk foreign key (id_prod) references Productos(id_prod);
+
+********masVendidos********
+create table masVendidos(
+id int primary key,
+id_prod int,
+cantidad varchar(60));
+
+alter table masVendidos add constraint id_prod_masVendidos_Fk foreign key (id_prod) references Productos (id_prod);
+
+*********Usuarios*******
+create table usuarios(
+id_usr int,
+nombre varchar(60),
+apellidos varchar(60),
+telefono number(13),
+correo varchar(60),
+edad int,
+rol varchar(10));
+
+alter table usuarios add constraint id_usr_Pk primary key (id_usr);
+
+*******carrito*******
+create table carrito(
+id_carrito int,
+id_usr int,
+status varchar(60));
+
+alter table carrito add constraint id_carrito_Pk primary key (id_carrito);
+
+alter table carrito add constraint id_usr_carrito_fk foreign key (id_usr) references usuarios (id_usr);
+
+*********Ordenes*********
+create table ordenes(
+id_orden int primary key,
+id_usr int,
+id_carrito int,
+precio_total number(13),
+status varchar(60));
+
+alter table ordenes add constraint id_usr_ordenes_fk foreign key (id_usr) references usuarios (id_usr);
+
+alter table ordenes add constraint id_carrito_ordenes_fk foreign key (id_carrito) references carrito (id_carrito);
+
+********ProductosEnCarrito**********
+create table productosEnCarrito(
+id int,
+id_carrito int,
+id_prod int,
+cantidad number(13),
+status varchar(13));
+
+alter table productosEnCarrito add constraint id_carrito_PEC_fk foreign key (id_carrito) references carrito (id_carrito);
+
+alter table productosEnCarrito add constraint id_prod_PEC_Fk foreign key (id_prod) references Productos (id_prod);
+

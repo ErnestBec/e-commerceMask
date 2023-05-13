@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+  /* font-family: 'Inter', sans-serif; */
+
+  font-family: "Kumbh Sans", sans-serif;
+}
+/*Palete Colors */
+:root {
+  /* Primary Colors */
+  --Orange: hsl(26, 100%, 55%);
+  --Pale-orange: hsl(25, 100%, 94%);
+  /* Neutral Colors */
+  --Very-dark-blue: hsl(220, 13%, 13%);
+  --Dark-grayish-blue: hsl(219, 9%, 45%);
+  --Grayish-blue: hsl(220, 14%, 75%);
+  --Light-grayish-blue: hsl(223, 64%, 98%);
+  --White: hsl(0, 0%, 100%);
+  /* --Black (with 75% opacity for lightbox background): hsl(0, 0%, 0%); */
+}
+
+.icon_mask {
+  max-width: 70px;
+}
+
+.navbar {
+  background-color: var(--Orange);
+}
+.container-navbar {
+  background-color: var(--Orange);
+}
+.container-footer {
+  background-color: var(--Orange);
+}
+.search-input {
+  background-color: var(--White);
+  width: 300px;
+  height: 50px;
+}
+.color-text {
+  color: var(--Dark-grayish-blue);
+}
+.btn {
+  background-color: var(--Orange);
+}
+.line-color {
+  background-color: var(--Orange);
+}
+.modal-content {
+  border-radius: 30px !important;
+}
