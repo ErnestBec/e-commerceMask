@@ -1,5 +1,5 @@
 <footer
-    class="container-footer d-flex align-items-center justify-content-evenly flex-lg-row flex-column flex-sm-column p-3 ">
+    class="container-footer d-flex align-items-center justify-content-evenly flex-lg-row flex-column  flex-sm-column p-3">
     <div class="d-flex  flex-column container-fluid">
         <span class="d-flex justify-content-center text-light">Nuestras redes sociales a tu disposicion</span>
         <div class="d-flex justify-content-evenly mt-3">
@@ -54,39 +54,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-</script>
-<!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> -->
-
-<script type="text/javascript">
-$(document).ready(function() {
-    $(document).on("click", "#upSubmit", function() {
-        // $('#Msg').html(
-        //     '<div class="loading"><img src="files/busy.gif" alt="loading" />&nbsp;&nbsp;Procesando, por favor espere...</div>'
-        // );
-        $.ajax({
-            url: "./controllers/login.php",
-            type: "POST",
-            cache: false,
-            data: {
-                email: email
-            },
-            success: function(data) {
-                if (data == 1) {
-                    // jQuery('#email').val('');
-                    $("#invalid").html(
-                        "<div class='alert alert-success' role='alert'>Registrado.</div> "
-                    );
-
-                } else {
-                    // jQuery('#email').val('');
-                    $("#invalid").html(
-                        "<div class='alert alert-danger' role='alert'>Error.</div> ");
-                }
-            }
-        });
-    });
-});
-</script>
+    </script>
 
 </body>
 

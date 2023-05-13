@@ -1,0 +1,14 @@
+Lista de consultas
+
+
+-hacer una consulta de un usuario en especifico por correo electronie y password
+-agregar un campo de imagen a la tabla de producto
+-agregar 50 productos a la tabla de productos
+-agregar dos usuarios uno con rol administrador uno con cliente 
+-agregar 5 categorias a la tabla de categorias
+-hacer una el una consulta de la tabla ordenes en donde me traiga todos los productos comprados 
+-hacer que a la hora de realizar la compra cambiar el status de ordenes a pagado lo mismo para carrito y productos en carrito
+-hacer una consulta de carrito con status activos que me traiga los productos que estan en estado activo y que pertenecen a dicho carrido de un usuario especifico
+-hacer que cuando sumes un producto al carrito lo restes a productos
+-hacer que cuando restes un producto de la tabla productos en carrito se sume a la cantidad de productos
+-hacer el disparador que cuando finalices la compra se inserte un la compra en la tabla de mas vendidos con los id de los productos
