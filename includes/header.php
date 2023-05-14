@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles\styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -35,8 +35,8 @@
                         <li class="nav-item dropdown">
                             <?php
 
-                                if (isset($_SESSION["login"])) {
-                                    ?>
+                            if (isset($_SESSION["login"])) {
+                                ?>
                             <a href="#">
                                 <!-- Button cart Desktop -->
                                 <svg class="me-3" width="54" height="40" viewBox="0 0 54 40" fill="none"
@@ -54,13 +54,13 @@
                                 </svg>
                             </a>
                             <?php
-                                }
-                                ?>
+                            }
+                            ?>
                             <!-- Button user Desktop -->
                             <?php
 
-                                if (isset($_SESSION["login"])) {
-                                    ?>
+                            if (isset($_SESSION["login"])) {
+                                ?>
 
 
 
@@ -95,8 +95,8 @@
 
 
                         <?php
-                                } else {
-                                    ?>
+                            } else {
+                                ?>
                         <a href="pageLogin.php">
 
                             <svg class="me-3" width="54" height="40" viewBox="0 0 56 49" fill="none"
@@ -115,8 +115,8 @@
                             </svg>
                         </a>
                         <?php
-                                }
-                                ?>
+                            }
+                            ?>
                     </nav>
                 </div>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -166,7 +166,7 @@
 
                                 if (isset($_SESSION["login"])) {
                                     ?>
-                                <a href="#">
+                                <a href="pageCarrito.php">
                                     <!-- Button cart Desktop -->
                                     <svg class="me-3" width="54" height="40" viewBox="0 0 54 40" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">

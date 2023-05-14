@@ -8,13 +8,13 @@ include 'header.php';
         <?php
         if (isset($_GET["user"])) {
             ?>
-            <h3 class="color-text d-none d-sm-none d-md-inline d-lg-inline">
-                <?php
+        <h3 class="color-text d-none d-sm-none d-md-inline d-lg-inline">
+            <?php
                 echo "¡Bienvenido " . $_GET["user"] . "!"
                     ?>
-            </h3>
+        </h3>
 
-            <?php
+        <?php
         }
         ?>
         <div>
@@ -44,21 +44,63 @@ include 'header.php';
         <div class="row d-flex justify-content-center">
 
             <?php
-            for ($i = 0; $i < 10; $i++) {
+            include("../controllers/conection_db.php");
+            $con = conectar();
+            $sql = "Select * from productos ;";
+            $result = mysqli_query($con, $sql);
+            while ($dataUser = mysqli_fetch_array($result)) {
                 ?>
-                <div class="card m-3" style="min-width: 17rem; max-width: 17rem;">
-                    <img src="../resources/imgs/mascara3.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                            card's content.</p>
-                        <a href="#" class="btn text-light">Go somewhere</a>
+
+            <div class="card m-3 color-text " style="max-width: 18rem;">
+
+                <div class="row ">
+
+                    <img src="../resources/imgs/mascara3.webp" class="card-img-top " alt="...">
+
+                    <div class="card-body col-7">
+                        <h5 class="card-title">
+                            <?php echo $dataUser["nombre"]; ?>
+                        </h5>
+                        <div>
+
+                            <h4 class="card-title">
+                                <?php echo $dataUser["precio"]; ?>
+                            </h4>
+                            <h4 class="card-title">
+                                <?php echo $dataUser["descuento"]; ?>
+                            </h4>
+                        </div>
+                        <p class="card-text">
+                            <?php echo $dataUser["descripcion"]; ?>
+                        </p>
+                        <a href=<?php echo "detalleArticulo.php?id_art=" . $dataUser["id_prod"]; ?>
+                            class="btn text-light">Ver Detalles</a>
+
                     </div>
                 </div>
-                <?php
+            </div>
+
+            <?php
             }
             ?>
         </div>
+        <?php
+        if (isset($_GET["addCart"])) {
+
+            ?>
+
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Bootstrap</strong>
+                <small class="text-muted">11 mins ago</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                Hello, world! This is a toast message.
+            </div>
+        </div>
+        <?php } ?>
+
     </section>
 </main>
 

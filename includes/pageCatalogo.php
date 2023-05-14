@@ -27,20 +27,19 @@ include 'header.php';
     <hr>
     <section class="container-fluid">
         <div class="row d-flex justify-content-center">
-
             <?php
             for ($i = 0; $i < 10; $i++) {
                 ?>
-                <div class="card m-3" style="min-width: 17rem; max-width: 17rem;">
-                    <img src="../resources/imgs/mascara3.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                            card's content.</p>
-                        <a href="#" class="btn text-light">Go somewhere</a>
-                    </div>
+            <div class="card-product m-3" style="min-width: 18rem;">
+                <img src="../resources/imgs/mascara3.webp" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's content.</p>
+                    <a href="detalleArticulo.php" class="btn text-light">Ver Detalles</a>
                 </div>
-                <?php
+            </div>
+            <?php
             }
             ?>
         </div>

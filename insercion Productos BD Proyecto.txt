@@ -1,0 +1,184 @@
+https://www.veneziamaschere.com/es/mascara/dama-cappello-doppia-cartapesta-mascara-veneciana/
+
+
+
+INSERT INTO productos (id_prod,nombre,descripcion,cantidad,precio,descuento,calificacion)
+
+values(701,"Arlequín","El Arlequín también conocido como el bufón se caracteriza por vestir un colorido traje de rombos y llevar un gorro de muchas puntas y cascabeles",6,1500,30,5)
+----------------
+
+INSERT INTO productos (id_prod,nombre,descripcion,cantidad,precio,descuento,calificacion)
+
+values(702,"Pantalone","Personaje más optimista de todos Su instinto aventurero y sus sueños lo guían a salir airoso de muchas situaciones difíciles La máscara presenta una nariz hinchada y roja",9,3500,10,4)
+----------------
+
+INSERT INTO productos (id_prod,nombre,descripcion,cantidad,precio,descuento,calificacion)
+
+values(703,"Medico de la Peste","Tras la epidemia de la peste negra de 1630 la máscara que utilizaban los médicos se hizo famosa Estas eran utilizadas para evitar el contagio y sobre todo para soportar el olor necrófago",10,2000,20,5)
+----------------
+
+INSERT INTO productos (id_prod,nombre,descripcion,cantidad,precio,descuento,calificacion)
+
+values(704,"Escribano","Quería convertirse en un sabio pero acababa aprovechándose de todo aquel que lo contrataba",5,1500,15,3)
+----------------
+
+INSERT INTO productos (id_prod,nombre,descripcion,cantidad,precio,descuento,calificacion)
+
+values(705,"Mattaccino","Figura del juerguista vividor que no tiene ningún interés por trabajar Suele llevar un sombrero de plumas y gastar en bromas pesadas y de mal gusto",8,3000,25,4)
+----------------
+
+INSERT INTO productos (id_prod,nombre,descripcion,cantidad,precio,descuento,calificacion)
+
+values(706,"Colombina","Amante de Arlequin y criada de Pantalone Es una auténtica femme fatale que haría cualquier cosa por salirse con la suya",2,1600,10,2)
+----------------
+
+INSERT INTO productos (id_prod,nombre,descripcion,cantidad,precio,descuento,calificacion)
+
+values(707,"Pierrot","Mascara es una de las mas famosas en Venecia una cara blanca con ojos delineados en negros y una lágrima cayendo por la mejilla",6,3000,10,5)
+----------------
+
+INSERT INTO productos (id_prod,nombre,descripcion,cantidad,precio,descuento,calificacion)
+
+values(708,"Bauta","La bauta era uno de los trajes más populares del Viejo Carnaval especialmente en el siglo XVIII y se mantuvo en boga hasta bien entrado el Carnaval moderno",5,4000,20,5)
+----------------
+
+INSERT INTO productos (id_prod,nombre,descripcion,cantidad,precio,descuento,calificacion)
+
+values(709,"Moretta","Mascara ovalada sin tirantes de terciopelo sin apertura para la boca que se mantiene en su lugar por un boton apretado entre los dientes",3,2800,10,3)
+----------------
+
+INSERT INTO productos (id_prod,nombre,descripcion,cantidad,precio,descuento,calificacion)
+
+values(710,"Medico della peste","Abrigo y o vestido negro hasta el tobillo hecho de tela pesada y generalmente encerado guantes protectores y una mascara parecida a la de un pajaro con un pico largo",10,600,5,2)
+----------------
+
+INSERT INTO productos (id_prod,nombre,descripcion,cantidad,precio,descuento,calificacion)
+
+values(711,"Gnaga","Usado por hombres disfrazados de mujeres El traje tradicional de los Gnaga incluye ropa femenina y una mascara que representa un gato femenino",20,5000,30,5)
+----------------
+
+INSERT INTO productos (id_prod,nombre,descripcion,cantidad,precio,descuento,calificacion)
+
+values(712,"Arlecchino","Mascaras mas populares de la Commedia del Arte del bajo de Bergamo del siglo XVI Arlecchino es ahora una figura central del moderno carnaval veneciano",50,4900,50,5)
+----------------
+
+INSERT INTO productos (id_prod,nombre,descripcion,cantidad,precio,descuento,calificacion)
+
+values(713,"Mascaras Blancas","Mascaras simples y sin pretensiones que representan de forma semiexacta el rostro de una persona normal",70,3500,20,4)
+----------------
+
+INSERT INTO productos (id_prod,nombre,descripcion,cantidad,precio,descuento,calificacion)
+
+values(714,"Mascaras Carnaval","Similares a las mascaras blancas pero eran mucho mas decorativas y coloridas para llevarlas en una ocasion especial",45,200,5,3)
+----------------
+
+INSERT INTO productos (id_prod,nombre,descripcion,cantidad,precio,descuento,calificacion)
+
+values(715,"Commedia dell arte Mascaras","Se utilizaron claramente para clasificar diferentes personajes en las representaciones teatrales",39,4982,12,2)
+----------------
+
+INSERT INTO productos (id_prod,nombre,descripcion,cantidad,precio,descuento,calificacion)
+
+values(716,"Bauta","Mascara blanca simple con mandíbulas marcadas que se proyectan sobre la boca",60,6000,20,4)
+----------------
+
+INSERT INTO productos (id_prod,nombre,descripcion,cantidad,precio,descuento,calificacion)
+
+values(717,"Dama","Mascaras mas populares y hermosas que se ven durante el Carnaval de Venecia Presenta variaciones elegantes que corresponden a las damas del Cinquecento",52,3684,11,3)
+----------------
+
+INSERT INTO productos (id_prod,nombre,descripcion,cantidad,precio,descuento,calificacion)
+
+values(718,"Bufon","Payaso asociado principalmente con la Edad Media El bufón influyó en todo el teatro europeo ropa de colores brillantes en un patron abigarrado",20,4000,20,4)
+----------------
+
+INSERT INTO productos (id_prod,nombre,descripcion,cantidad,precio,descuento,calificacion)
+
+values(719,"Volto","Mascara del ciudadano porque la gente comun la usaba durante todas las fiestas La mascara es principalmente blanca y se usa con un tricornio y una capa",10,2900,10,2)
+----------------
+
+INSERT INTO productos (id_prod,nombre,descripcion,cantidad,precio,descuento,calificacion)
+
+values(720,"Pulcinella","La mascara tiene una nariz extremadamente larga en forma de pico y generalmente se usa con una bata blanca larga y cabello desordenado",46,3200,30,1)
+----------------
+
+INSERT INTO productos (id_prod,nombre,descripcion,cantidad,precio,descuento,calificacion)
+
+values(721,"Pantalone","Mascara tiene una gran nariz en forma de pico y cejas pobladas Viste tambien chaleco rojo derecho, calzón rojo sotana negra pantuflas medias y sombrero sin ala",60,1860,10,3)
+----------------
+
+INSERT INTO productos (id_prod,nombre,descripcion,cantidad,precio,descuento,calificacion)
+
+values(722,"Doctor Balanzone","El personaje del falso sabio. Su máscara lleva bigote, nariz roja y cejas pronunciadas.",26,2687,5,2)
+----------------
+
+INSERT INTO productos (id_prod,nombre,descripcion,cantidad,precio,descuento,calificacion)
+
+values(723,"Dama Cappello Doppia Cartapesta","El Dux y dogaressa finalmente juntos, un raro evento dadas las pocas posibilidades de reunirse sin el peso de los compromisos oficiales, obligados en la vestimenta y comportamiento dictados por la apariencia",15,7000,50,5)
+----------------
+
+
+INSERT INTO productos (id_prod,nombre,descripcion,cantidad,precio,descuento,calificacion)
+
+values(724,"Cara pequeña con dos alas de metal y pedrería","La pequeña versión del rostro de la dogaressa en papel maché Elaborada a mano por decoradores expertos de acuerdo con la técnica más antigua y tradicional de la fabricación de máscaras venecianas",6,6580,12,5)
+----------------
+
+INSERT INTO productos (id_prod,nombre,descripcion,cantidad,precio,descuento,calificacion)
+
+values(725,"Colombina Cigno Pentagramma","Esta forma particular y la alta calidad del proceso artesanal crean una máscara perfecta para usar",9,8000,30,4)
+----------------
+
+INSERT INTO productos (id_prod,nombre,descripcion,cantidad,precio,descuento,calificacion)
+
+values(726,"Bacco Frutta","El rostro es de papel maché y está totalmente decorado con estuco y baño de oro y el contorno es realizado con varios tipos de hojas, múltiples cualidades de frutas y flores",8,20000,50,5)
+----------------
+
+INSERT INTO productos (id_prod,nombre,descripcion,cantidad,precio,descuento,calificacion)
+
+values(727,"Colombina con media mariposa y palo","La antigua máscara de la Colombina, que cubre solo la parte de los ojos, está enriquecida con un mango y aplicaciones de metal dorado que representan un ala de mariposa rodeada de diamantes de imitación",10,9000,20,4)
+----------------
+
+INSERT INTO productos (id_prod,nombre,descripcion,cantidad,precio,descuento,calificacion)
+
+values(728,"Colombina completamente emplumada","La más famosa y elegante de las máscaras venecianas se vuelve, en esta versión completamente emplumada, más intrigante y misteriosa",60,5500,30,3)
+----------------
+
+INSERT INTO productos (id_prod,nombre,descripcion,cantidad,precio,descuento,calificacion)
+
+values(729,"Fiamma Grande","La dogaressa, la reina del carnaval veneciano representada en esta máscara de cuero y papel maché",34,7500,15,2)
+----------------
+
+INSERT INTO productos (id_prod,nombre,descripcion,cantidad,precio,descuento,calificacion)
+
+values(730,"Safi","La versión más pequeña de esta hermosa y única Máscara Veneciana. De cerámica y cuero con decoraciones hechas a mano. 100% Made in Italy",21,12000,10,5)
+----------------
+
+INSERT INTO productos (id_prod,nombre,descripcion,cantidad,precio,descuento,calificacion)
+
+values(731,"Tuareg Doble","El bufón y su dama representados juntos. Caras en papel maché encerradas en un complejo procesamiento de cuero Máscara totalmente hecha a mano y decorada en Italia",36,30000,40,4)
+----------------
+
+INSERT INTO productos (id_prod,nombre,descripcion,cantidad,precio,descuento,calificacion)
+
+values(731,"Saamira","El tamaño más grande de esta máscara única y elegante. Cuero hecho expertamente a mano con maestría, es usado para enmarcar los rostros del papel maché y luego decoradas",20,6500,21,2)
+----------------
+
+INSERT INTO productos (id_prod,nombre,descripcion,cantidad,precio,descuento,calificacion)
+
+values(732,"Dama Cappello","El maravilloso rostro de la dogaressa, embellecido con un precioso sombrero con un estilo romántico y flores coloridas",12,60000,50,5)
+----------------
+
+INSERT INTO productos (id_prod,nombre,descripcion,cantidad,precio,descuento,calificacion)
+
+values(733,"Eclissi","Máscara de Cerámica hecha a mano inspirada en una parte de la luna y disponible en ocho colores. Decorada completamente a mano y 100% Made in Italy certified",5,7800,10,3)
+----------------
+
+INSERT INTO productos (id_prod,nombre,descripcion,cantidad,precio,descuento,calificacion)
+
+values(734,"Donna Ragno con seis consejos","La pequeña versión de esta máscara de cerámica hecha a mano, decorada y ensamblada completamente a mano por decoradores expertos",9,6872,5,2)
+----------------
+
+INSERT INTO productos (id_prod,nombre,descripcion,cantidad,precio,descuento,calificacion)
+
+values(735,"Iris","Una hermosa flor hábilmente representada por maestros de la cerámica y la decoración",22,7560,12,3)
+----------------
