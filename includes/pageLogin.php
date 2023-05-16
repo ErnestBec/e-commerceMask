@@ -1,7 +1,7 @@
 <?php
 include "header.php";
 ?>
-<div class="d-flex justify-content-center">
+<div class="d-flex justify-content-center" style=" margin-top: 100px;">
     <div class="container m-lg-5 mt-5 mt-sm-5 mb-5 mb-sm-5 ">
         <div class="row d-flex align-items-center">
             <div class="col-6 d-none d-sm-none d-md-none d-lg-inline ">
@@ -27,13 +27,13 @@ include "header.php";
                 <?php
                 if (isset($_GET["error_login"])) {
                     ?>
-                <span class="alert-danger">
-                    <?php
+                    <span class="alert-danger">
+                        <?php
                         echo $_GET["error_login"]
                             ?>
-                </span>
+                    </span>
 
-                <?php
+                    <?php
                 }
                 ?>
                 <div class="d-flex justify-content-center">
@@ -45,13 +45,13 @@ include "header.php";
                         <?php
                         if (isset($_GET["error_email"])) {
                             ?>
-                        <span class="alert-danger">
-                            <?php
+                            <span class="alert-danger">
+                                <?php
                                 echo $_GET["error_email"]
                                     ?>
-                        </span>
+                            </span>
 
-                        <?php
+                            <?php
                         }
                         ?>
                         <div class="mb-3">
@@ -73,13 +73,13 @@ include "header.php";
                         <?php
                         if (isset($_GET["error_pass"])) {
                             ?>
-                        <span class="alert-danger">
-                            <?php
+                            <span class="alert-danger">
+                                <?php
                                 echo $_GET["error_pass"]
                                     ?>
-                        </span>
+                            </span>
 
-                        <?php
+                            <?php
                         }
                         ?>
 

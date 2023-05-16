@@ -5,7 +5,7 @@ if (!$_SESSION["login"]) {
 }
 include 'header.php';
 ?>
-<div class=" d-flex justify-content-center">
+<div class=" d-flex justify-content-center" style=" margin-top: 100px;">
     <?php
     include("../controllers/conection_db.php");
     $con = conectar();
@@ -23,22 +23,27 @@ include 'header.php';
                 <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner rounded-3">
                         <div class="carousel-item active" style="height: 510px;">
-                            <img src="../resources/imgs/marcara1.jpg" class="d-block w-100" alt="...">
+                            <img src="<?php echo $dataUser['img'] ?>" class="d-block w-100" alt="imagen Articulo">
                         </div>
-                        <div class="carousel-item" style="height: 510px;">
-                            <img src="../resources/imgs/mascara2.jpg" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item" style="height: 510px;">
-                            <img src="../resources/imgs/mascara3.webp" class="d-block w-100" alt="...">
-                        </div>
+
                     </div>
                 </div>
             </div>
             <form method="POST" action="../controllers/addCartArticle.php" class="col-lg-6" id="detalleArticulo">
 
 
-                <section class="d-flex justify-content-center ">
-                    <h3 class="color-text">
+                <section class="d-flex justify-content-center flex-column ">
+                    <?php
+                        if (isset($_GET['error_cantidad'])) {
+
+                            ?>
+                    <h4 class="alert-danger d-flex justify-content-center">
+                        <?php echo $_GET['error_cantidad'] ?>
+                    </h4>
+                    <?php
+                        }
+                        ?>
+                    <h3 class="color-text d-flex justify-content-center">
                         <?php echo $dataUser["nombre"]; ?>
                         <input type="hidden" name="id_prod" id="id_prod" value=<?php echo $dataUser["id_prod"]; ?>>
                     </h3>

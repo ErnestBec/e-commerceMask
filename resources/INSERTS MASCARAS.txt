@@ -1,0 +1,71 @@
+INSERTS EN CATEGORIAS***********
+insert into categorias values(1,'antifaces');
+insert into categorias values(2,'bufon');
+insert into categorias values(3,'media cara');
+insert into categorias values(4,'encaje');
+insert into categorias values(5,'samurai');
+
+INSERTS EN PRODUCTOS *****************
+ORDEN DE LOS DATOS:
+ID_PROD, NOMBRE, DESCRIPCION, CANTIDAD, PRECIO, DESCUENTO, CALIFICACION, IMAGEN, ID_CAT
+
+insert into productos values(1,'Thmyo',' Máscara de media cara con diseño del Fantasma de la Ópera',10,299,0.0,4,null,3);
+
+insert into productos values(2,'YU FENG Jester Bells','  Máscara veneciana de cara completa, color negro',10,499,0.0,4,null,2);
+
+insert into productos values(3,'Mardi Gras','BLEVET Máscara de cara completa para hombre, máscara de bufón.',10,109.99,0.0,4,null,2);
+
+insert into productos values(4,'Myja','venecianas retro de encaje de media cara para mujeres',10,89,0.0,4,null,1);
+
+insert into productos values(5,'SIQUK','máscara de disfraz de diamantes de imitación,',10,152,0.0,4,null,4);
+
+insert into productos values(6,'CCUFO','Máscara Veneciana de Metal Cortado a láser para Mascarada',10,154,0.0,4,null,1);
+
+insert into productos values(7,'IETANG','hermosas máscaras venecianas para parejas',10,289,0.0,4,null,1);
+
+insert into productos values(8,'ABOOFAN','máscara veneciana de bufón de media cara',10,190,0.0,4,null,2);
+
+insert into productos values(9,'Coolwife','máscara veneciana de bufón de media cara',10,500,0.0,4,null,3);
+
+insert into productos values(10,'Griego','Máscara metálica para Mascarada',10,129,0.0,4,null,3);
+
+insert into productos values(11,'REV','Máscara Antifaz Original para Disfraz de la Serie The Umbrella Academy',10,299,0.0,4,null,1);
+
+insert into productos values(12,'VALO CONCEPT','Antifaces Metálicos Lisos de Plástico Semi Flexible.',10,119,0.0,4,null,1);
+
+insert into productos values(13,'Máscara veneciana de encaje','cara completa para mujer',10,260,0.0,4,null,4);
+
+insert into productos values(14,' princesa vintage','Máscara veneciana negra con elegante collar gótico de encaje',10,399,0.0,4,null,4);
+
+insert into productos values(15,'Mariposa','Masquerade Mask Máscara veneciana de mariposa para mujer',10,215,0.0,4,null,1);
+
+insert into productos values(16,'ChuCheng',' Cubierta de Cara Mardi Gras para Mujer',10,69,0.0,4,null,1);
+
+insert into productos values(17,'Misteriosa','máscara veneciana para fiesta de Halloween, máscara de baile de graduación, disfraz de bar',10,99,0.0,4,null,3);
+
+insert into productos values(18,'ForUnique','Máscara de máscaras para parejas, mujeres y hombres, paquete de 3 unidades',10,299,0.0,4,null,1);
+
+insert into productos values(19,'Geek-M','máscara de disfraz para festivales de Navidad, Año Nuevo',10,59,0.0,4,null,4);
+
+insert into productos values(20,'Hoshin',' Mardi Gras Deecorations venecianas para mujer',10,86,0.0,4,null,1);
+
+insert into productos values(21,'liweiyu','para mujer (azul-negro), 9.5 x 4.1 pulgadas',10,79,0.0,4,null,1);
+
+insert into productos values(22,'Mask It','Máscara de satén y lentejuelas',10,66,0.0,4,null,2);
+
+insert into productos values(23,'IETANG RED',' Un par de hermosas máscaras venecianas para parejas',10,96,0.0,4,null,2);
+
+insert into productos values(24,'Gorgeous','Venecianas máscaras máscaras Fiesta Disfraces Accesorio',10,69,0.0,4,null,1);
+
+insert into productos values(25,'AUTOWT','Conjunto de Disfraces de Mascarada, 4pcs Mujeres Chicas Negro Gótico',10,400,0.0,4,null,4);
+
+insert into productos values(26,'SIQUK','máscara de disfraz de Halloween',10,69,0.0,4,null,4);
+
+insert into productos values(27,'LIANGLIDE','Máscara japonesa de látex para cosplay',10,119,0.0,4,null,5);
+
+insert into productos values(28,'Fantasma',' cubierta de cara de demonio japonés 3D',10,300,0.0,4,null,5);
+
+insert into productos values(29,'Hannya Oni','disfraz de cosplay de Prajna NOH',10,480,0.0,4,null,5);
+
+insert into productos values(30,'asky','Mascara Samurai',10,420,0.0,4,null,5);
+

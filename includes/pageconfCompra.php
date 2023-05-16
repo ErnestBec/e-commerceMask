@@ -2,7 +2,7 @@
 include "header.php";
 ?>
 
-<div class=" d-flex justify-content-center">
+<div class=" d-flex justify-content-center" style=" margin-top: 150px;">
 
     <div class="py-5 text-center">
         <h2>Su compra ha sido confirmada</h2>

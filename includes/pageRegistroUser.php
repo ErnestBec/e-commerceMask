@@ -1,7 +1,7 @@
 <?php
 include "header.php";
 ?>
-<div class="d-flex justify-content-center">
+<div class="d-flex justify-content-center" style=" margin-top: 100px;">
     <div class="container m-lg-5 mt-5 mt-sm-5 mb-5 mb-sm-5 ">
         <div class="row d-flex align-items-center">
             <div class="col-6 d-none d-sm-none d-md-none d-lg-inline ">
@@ -20,107 +20,126 @@ include "header.php";
                 </div>
             </div>
             <div class="col-lg-6" id="pageLogin">
-                <section class="d-flex justify-content-center">
-                    <h3 class="color-text ">Resgistro</h3>
+                <section class="d-flex justify-content-center flex-column">
+                    <h3 class="color-text d-block">Resgistro</h3>
+                    <?php
+                    if (isset($_GET["error_userExist"])) {
+                        ?>
+                        <span class="alert-danger d-block">
+                            <?php
+                            echo $_GET["error_userExist"]
+                                ?>
+                        </span>
+
+                        <?php
+                    }
+                    ?>
                 </section>
                 <hr>
-                <?php
-                if (isset($_GET["error_login"])) {
-                    ?>
-                <span class="alert-danger">
-                    <?php
-                        echo $_GET["error_login"]
-                            ?>
-                </span>
-
-                <?php
-                }
-                ?>
                 <div class="d-flex justify-content-center">
                     <form method="POST" action="../controllers/registroUser.php" class="d-flex">
+
                         <div class="row d-flex justify-content-center">
                             <div class="mb-3 col-8 col-sm-8 col-md-6 col-lg-6">
-                                <label for="name" class="form-label color-text">Nombre</label>
+                                <label for="name" class="form-label color-text d-block">Nombre</label>
+                                <?php
+                                if (isset($_GET["error_name"])) {
+                                    ?>
+                                    <span class="alert-danger d-block">
+                                        <?php
+                                        echo $_GET["error_name"]
+                                            ?>
+                                    </span>
+
+                                    <?php
+                                }
+                                ?>
                                 <input class="form-control" type="text" name="name" id="name">
                             </div>
-                            <?php
-                            if (isset($_GET["error_email"])) {
-                                ?>
-                            <span class="alert-danger">
-                                <?php
-                                    echo $_GET["error_email"]
-                                        ?>
-                            </span>
 
-                            <?php
-                            }
-                            ?>
                             <div class="mb-3 col-8 col-sm-8 col-md-6 col-lg-6">
                                 <label for="app" class="form-label color-text">Apellidos</label>
+                                <?php
+                                if (isset($_GET["error_app"])) {
+                                    ?>
+                                    <span class="alert-danger d-block">
+                                        <?php
+                                        echo $_GET["error_app"]
+                                            ?>
+                                    </span>
+
+                                    <?php
+                                }
+                                ?>
                                 <input class="form-control" type="text" name="app" id="app">
                             </div>
-                            <?php
-                            if (isset($_GET["error_email"])) {
-                                ?>
-                            <span class="alert-danger">
-                                <?php
-                                    echo $_GET["error_email"]
-                                        ?>
-                            </span>
 
-                            <?php
-                            }
-                            ?>
                             <div class="mb-3 col-8 col-sm-8 col-md-6 col-lg-6">
                                 <label for="phone" class="form-label color-text">Telefono</label>
+                                <?php
+                                if (isset($_GET["error_phone"])) {
+                                    ?>
+                                    <span class="alert-danger d-block">
+                                        <?php
+                                        echo $_GET["error_phone"]
+                                            ?>
+                                    </span>
+
+                                    <?php
+                                }
+                                ?>
                                 <input class="form-control" type="tel" name="phone" id="phone">
                             </div>
-                            <?php
-                            if (isset($_GET["error_email"])) {
-                                ?>
-                            <span class="alert-danger">
-                                <?php
-                                    echo $_GET["error_email"]
-                                        ?>
-                            </span>
 
-                            <?php
-                            }
-                            ?>
                             <div class="mb-3 col-8 col-sm-8 col-md-6 col-lg-6">
                                 <label for="email" class="form-label color-text">Correo</label>
+                                <?php
+                                if (isset($_GET["error_email"])) {
+                                    ?>
+                                    <span class="alert-danger d-block">
+                                        <?php
+                                        echo $_GET["error_email"]
+                                            ?>
+                                    </span>
+
+                                    <?php
+                                }
+                                ?>
                                 <input class="form-control" type="email" name="email" id="email">
                             </div>
-                            <?php
-                            if (isset($_GET["error_email"])) {
-                                ?>
-                            <span class="alert-danger">
-                                <?php
-                                    echo $_GET["error_email"]
-                                        ?>
-                            </span>
 
-                            <?php
-                            }
-                            ?>
                             <div class="mb-3 col-8 col-sm-8 col-md-6 col-lg-6">
                                 <label for="age" class="form-label color-text">Edad</label>
+                                <?php
+                                if (isset($_GET["error_age"])) {
+                                    ?>
+                                    <span class="alert-danger d-block">
+                                        <?php
+                                        echo $_GET["error_age"]
+                                            ?>
+                                    </span>
+
+                                    <?php
+                                }
+                                ?>
                                 <input class="form-control" type="text" name="age" id="age">
                             </div>
-                            <?php
-                            if (isset($_GET["error_email"])) {
-                                ?>
-                            <span class="alert-danger">
-                                <?php
-                                    echo $_GET["error_email"]
-                                        ?>
-                            </span>
 
-                            <?php
-                            }
-                            ?>
+
                             <div class=" mb-3 col-8 col-sm-8 col-md-6 col-lg-6">
                                 <label for="pwd" class="form-label color-text">Contraseña</label>
+                                <?php
+                                if (isset($_GET["error_pwd"])) {
+                                    ?>
+                                    <span class="alert-danger d-block">
+                                        <?php
+                                        echo $_GET["error_pwd"]
+                                            ?>
+                                    </span>
+
+                                    <?php
+                                }
+                                ?>
                                 <div class="input-group">
                                     <input class="form-control" type="password" name="pwd" id="pwd">
                                     <button type="button" class="btn text-light"><svg xmlns="http://www.w3.org/2000/svg"
@@ -133,18 +152,7 @@ include "header.php";
                                         </svg></button>
                                 </div>
                             </div>
-                            <?php
-                            if (isset($_GET["error_pass"])) {
-                                ?>
-                            <span class="alert-danger">
-                                <?php
-                                    echo $_GET["error_pass"]
-                                        ?>
-                            </span>
 
-                            <?php
-                            }
-                            ?>
                             <div class="mb-3 col-8 col-sm-8 col-md-6 col-lg-6">
                                 <label for="pwdConfirm" class="form-label color-text">Confirmar contraseña</label>
                                 <div class="input-group">
@@ -160,15 +168,15 @@ include "header.php";
                                 </div>
                             </div>
                             <?php
-                            if (isset($_GET["error_pass"])) {
+                            if (isset($_GET["error_pwdConf"])) {
                                 ?>
-                            <span class="alert-danger">
-                                <?php
-                                    echo $_GET["error_pass"]
+                                <span class="alert-danger d-block ">
+                                    <?php
+                                    echo $_GET["error_pwdConf"]
                                         ?>
-                            </span>
+                                </span>
 
-                            <?php
+                                <?php
                             }
                             ?>
 
