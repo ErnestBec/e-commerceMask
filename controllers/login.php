@@ -24,6 +24,7 @@ if (empty($correo)) {
         $dataUser = mysqli_fetch_array($result);
         if ($dataUser['correo'] == $correo && $dataUser['pwd'] == $contraseña) {
             $_SESSION['login'] = true;
+            $_SESSION['id_usr'] = $dataUser['id_usr'];
             $_SESSION['correo'] = $dataUser['correo'];
             $_SESSION['pwd'] = $dataUser['pwd'];
             $_SESSION['rol'] = $dataUser['rol'];

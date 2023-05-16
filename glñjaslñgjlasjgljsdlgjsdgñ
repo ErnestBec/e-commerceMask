@@ -1,0 +1,1908 @@
+[1mdiff --cc includes/detalleArticulo.php[m
+[1mindex ce36565,de4ddda..0000000[m
+[1m--- a/includes/detalleArticulo.php[m
+[1m+++ b/includes/detalleArticulo.php[m
+[36m@@@ -1,8 -1,21 +1,28 @@@[m
+  <?php[m
+[32m++<<<<<<< HEAD[m
+[32m +[m
+[32m +include "header.php";[m
+[32m +?>[m
+[32m +<div class=" d-flex justify-content-center">[m
+[32m++=======[m
+[32m+ session_start();[m
+[32m+ if (!$_SESSION["login"]) {[m
+[32m+     header('location:pageLogin.php?error_session=Favor de Iniciar Sesion!');[m
+[32m+ }[m
+[32m+ include 'header.php';[m
+[32m+ ?>[m
+[32m+ <div class=" d-flex justify-content-center" style=" margin-top: 100px;">[m
+[32m+     <?php[m
+[32m+     include("../controllers/conection_db.php");[m
+[32m+     $con = conectar();[m
+[32m+     $id_prod = $_GET["id_art"];[m
+[32m+     $sql = "Select * from productos where id_prod=" . $id_prod . ";";[m
+[32m+     $result = mysqli_query($con, $sql);[m
+[32m+ [m
+[32m+     if (mysqli_num_rows($result) === 1) {[m
+[32m+         $dataUser = mysqli_fetch_array($result)[m
+[32m+             ?>[m
+[32m++>>>>>>> 159bdcda60e67860369f168d80fd81f9f0eb3430[m
+  [m
+      <div class="container m-lg-5 mt-5 mt-sm-5 mb-5 mb-sm-5 ">[m
+          <div class="row d-flex align-items-center">[m
+[36m@@@ -10,20 -23,30 +30,47 @@@[m
+                  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">[m
+                      <div class="carousel-inner rounded-3">[m
+                          <div class="carousel-item active" style="height: 510px;">[m
+[32m++<<<<<<< HEAD[m
+[32m +                            <img src="../resources/imgs/marcara1.jpg" class="d-block w-100" alt="...">[m
+[32m +                        </div>[m
+[32m +                        <div class="carousel-item" style="height: 510px;">[m
+[32m +                            <img src="../resources/imgs/mascara2.jpg" class="d-block w-100" alt="...">[m
+[32m +                        </div>[m
+[32m +                        <div class="carousel-item" style="height: 510px;">[m
+[32m +                            <img src="../resources/imgs/mascara3.webp" class="d-block w-100" alt="...">[m
+[32m +                        </div>[m
+[32m +                    </div>[m
+[32m +                </div>[m
+[32m +            </div>[m
+[32m +            <div class="col-lg-6" id="detalleArticulo">[m
+[32m +                <section class="d-flex justify-content-center ">[m
+[32m +                    <h3 class="color-text">Nombre de la Mascara</h3>[m
+[32m++=======[m
+[32m+                             <img src="<?php echo $dataUser['img'] ?>" class="d-block w-100" alt="imagen Articulo">[m
+[32m+                         </div>[m
+[32m+ [m
+[32m+                     </div>[m
+[32m+                 </div>[m
+[32m+             </div>[m
+[32m+             <form method="POST" action="../controllers/addCartArticle.php" class="col-lg-6" id="detalleArticulo">[m
+[32m+ [m
+[32m+ [m
+[32m+                 <section class="d-flex justify-content-center flex-column ">[m
+[32m+                     <?php[m
+[32m+                         if (isset($_GET['error_cantidad'])) {[m
+[32m+ [m
+[32m+                             ?>[m
+[32m+                     <h4 class="alert-danger d-flex justify-content-center">[m
+[32m+                         <?php echo $_GET['error_cantidad'] ?>[m
+[32m+                     </h4>[m
+[32m+                     <?php[m
+[32m+                         }[m
+[32m+                         ?>[m
+[32m+                     <h3 class="color-text d-flex justify-content-center">[m
+[32m+                         <?php echo $dataUser["nombre"]; ?>[m
+[32m+                         <input type="hidden" name="id_prod" id="id_prod" value=<?php echo $dataUser["id_prod"]; ?>>[m
+[32m+                     </h3>[m
+[32m++>>>>>>> 159bdcda60e67860369f168d80fd81f9f0eb3430[m
+                  </section>[m
+                  <hr>[m
+  [m
+[36m@@@ -31,36 -54,41 +78,71 @@@[m
+  [m
+  [m
+                      <section class="d-flex justify-content-center">[m
+[32m++<<<<<<< HEAD[m
+[32m +                        <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"[m
+[32m +                                class="bi bi-star-fill" viewBox="0 0 16 16">[m
+[32m +                                <path[m
+[32m +                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />[m
+[32m +                            </svg> </span>[m
+[32m +                        <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"[m
+[32m +                                class="bi bi-star-fill" viewBox="0 0 16 16">[m
+[32m +                                <path[m
+[32m +                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />[m
+[32m +                            </svg> </span>[m
+[32m +                        <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"[m
+[32m +                                class="bi bi-star-fill" viewBox="0 0 16 16">[m
+[32m +                                <path[m
+[32m +                                    d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />[m
+[32m +                            </svg> </span>[m
+[32m++=======[m
+[32m+                         <?php[m
+[32m+                             for ($i = 0; $i < $dataUser["calificacion"]; $i++) {[m
+[32m+ [m
+[32m+                                 ?>[m
+[32m+                         <span>[m
+[32m+                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"[m
+[32m+                                 class="bi bi-star-fill text-warning" viewBox="0 0 16 16">[m
+[32m+                                 <path[m
+[32m+                                     d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />[m
+[32m+                             </svg>[m
+[32m+                         </span>[m
+[32m+                         <?php[m
+[32m+                             }[m
+[32m+                             ?>[m
+[32m+ [m
+[32m+ [m
+[32m+ [m
+[32m++>>>>>>> 159bdcda60e67860369f168d80fd81f9f0eb3430[m
+                      </section>[m
+  [m
+  [m
+  [m
+                      <div class="mb-3 ">[m
+                          <br>[m
+[32m++<<<<<<< HEAD[m
+[32m +                        <h4>Descripción</h4>[m
+[32m +[m
+[32m +                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia a dignissimos adipisci[m
+[32m +                            ipsa ullam pariatur similique sit earum molestiae,[m
+[32m +                            impedit itaque tempora asperiores dolore hic facilis quibusdam dicta, corporis in.</p>[m
+[32m +[m
+[32m +                        <div>[m
+[32m +[m
+[32m +                            <h6 class="d-flex justify-content-center">$12000 30%</h6>[m
+[32m++=======[m
+[32m+ [m
+[32m+                         <p class="color-text fs-4">[m
+[32m+                             <?php echo $dataUser["descripcion"]; ?>[m
+[32m+                         </p>[m
+[32m+ [m
+[32m+                         <div class="d-flex justify-content-evenly">[m
+[32m+                             <h4 class="d-flex justify-content-center text-success">[m
+[32m+                                 <?php echo "$" . $dataUser["precio"]; ?>[m
+[32m+                             </h4>[m
+[32m+                             <h4 class="d-flex justify-content-center text-info">[m
+[32m+                                 <?php echo "%" . $dataUser["descuento"]; ?>[m
+[32m+                             </h4>[m
+[32m++>>>>>>> 159bdcda60e67860369f168d80fd81f9f0eb3430[m
+  [m
+                          </div>[m
+  [m
+[36m@@@ -71,11 -99,15 +153,23 @@@[m
+                      <div class="d-flex justify-content-evenly">[m
+                          <h5>Cantidad</h5>[m
+                          <div class="btn-group m-2" role="group" aria-label="Basic example">[m
+[32m++<<<<<<< HEAD[m
+[32m +                            <button type="button" class="btn text-light" onclick="sumar()">+</button>[m
+[32m +                            <span id="contadorArticle" style="width: 45px; height: 40px;"[m
+[32m +                                class="color-text fs-2  d-flex justify-content-center align-items-center border">[m
+[32m +                            </span>[m
+[32m +                            <button type="button" class="btn text-light" onclick="restar()">-</button>[m
+[32m++=======[m
+[32m+                             <!-- <button type="button" class="btn text-light" onclick="sumar()">+</button> -->[m
+[32m+                             <!-- <span id="contadorArticle" style="width: 45px; height: 40px;"[m
+[32m+                                 class="color-text fs-2  d-flex justify-content-center align-items-center border">[m
+[32m+                             </span> -->[m
+[32m+ [m
+[32m+                             <input class="color-text fs-2  d-flex justify-content-center align-items-center border"[m
+[32m+                                 style="width: 45px; height: 40px;" type="text" name="cantidad" id="cantidad" value="1">[m
+[32m+ [m
+[32m+                             <!-- <button type="button" class="btn text-light" onclick="restar()">-</button> -->[m
+[32m++>>>>>>> 159bdcda60e67860369f168d80fd81f9f0eb3430[m
+                          </div>[m
+                      </div>[m
+                  </div>[m
+[36m@@@ -87,10 -119,14 +181,21 @@@[m
+                      <button class="btn text-light " type="submit">Agregar</button>[m
+                      <button class="btn text-light " type="button">Comprar</button>[m
+                  </div>[m
+[32m++<<<<<<< HEAD[m
+[32m +            </div>[m
+[32m +        </div>[m
+[32m +    </div>[m
+[32m +</div>[m
+[32m++=======[m
+[32m+ [m
+[32m+             </form>[m
+[32m+         </div>[m
+[32m+     </div>[m
+[32m+ </div>[m
+[32m+ <?php[m
+[32m+     }[m
+[32m+     ?>[m
+[32m++>>>>>>> 159bdcda60e67860369f168d80fd81f9f0eb3430[m
+  </div>[m
+  <?php[m
+  include "footer.php";[m
+[1mdiff --cc includes/header.php[m
+[1mindex 7316ce8,8c4b3c9..0000000[m
+[1m--- a/includes/header.php[m
+[1m+++ b/includes/header.php[m
+[36m@@@ -37,137 -37,7 +37,141 @@@[m
+  [m
+                              if (isset($_SESSION["login"])) {[m
+                                  ?>[m
+[32m++<<<<<<< HEAD[m
+[32m +                            <a href="#">[m
+[32m +                                <!-- Button cart Desktop -->[m
+[32m +                                <svg class="me-3" width="54" height="40" viewBox="0 0 54 40" fill="none"[m
+[32m +                                    xmlns="http://www.w3.org/2000/svg">[m
+[32m +                                    <g clip-path="url(#clip0_114_9)">[m
+[32m +                                        <path[m
+[32m +                                            d="M24.75 15.0001H29.25V10.0001H36V6.66675H29.25V1.66675H24.75V6.66675H18V10.0001H24.75V15.0001ZM15.75 30.0001C13.275 30.0001 11.2725 31.5001 11.2725 33.3334C11.2725 35.1667 13.275 36.6667 15.75 36.6667C18.225 36.6667 20.25 35.1667 20.25 33.3334C20.25 31.5001 18.225 30.0001 15.75 30.0001ZM38.25 30.0001C35.775 30.0001 33.7725 31.5001 33.7725 33.3334C33.7725 35.1667 35.775 36.6667 38.25 36.6667C40.725 36.6667 42.75 35.1667 42.75 33.3334C42.75 31.5001 40.725 30.0001 38.25 30.0001ZM16.1325 24.5834L16.2 24.3834L18.225 21.6667H34.9875C36.675 21.6667 38.16 20.9834 38.925 19.9501L47.61 8.26675L43.695 6.66675H43.6725L41.1975 10.0001L34.9875 18.3334H19.1925L18.9 17.8834L13.86 10.0001L11.7225 6.66675L9.6075 3.33341H2.25V6.66675H6.75L14.85 19.3167L11.8125 23.4001C11.4525 23.8667 11.25 24.4167 11.25 25.0001C11.25 26.8334 13.275 28.3334 15.75 28.3334H42.75V25.0001H16.695C16.4025 25.0001 16.1325 24.8167 16.1325 24.5834Z"[m
+[32m +                                            fill="white" />[m
+[32m +                                    </g>[m
+[32m +                                    <defs>[m
+[32m +                                        <clipPath id="clip0_114_9">[m
+[32m +                                            <rect width="54" height="40" fill="white" />[m
+[32m +                                        </clipPath>[m
+[32m +                                    </defs>[m
+[32m +                                </svg>[m
+[32m +                            </a>[m
+[32m +                            <?php[m
+[32m +                            }[m
+[32m +                            ?>[m
+[32m +                            <!-- Button user Desktop -->[m
+[32m +                            <?php[m
+[32m +[m
+[32m +                            if (isset($_SESSION["login"])) {[m
+[32m +                                ?>[m
+[32m +[m
+[32m +[m
+[32m +[m
+[32m +                            <svg class="me-3" width="54" height="40" viewBox="0 0 56 49" fill="none"[m
+[32m +                                xmlns="http://www.w3.org/2000/svg" type="button" id="navbarDarkDropdownMenuLink"[m
+[32m +                                data-bs-toggle="dropdown" aria-expanded="false">[m
+[32m +[m
+[32m +                                <g clip-path=" url(#clip0_114_13)">[m
+[32m +                                    <path[m
+[32m +                                        d="M28 4.08325C15.12 4.08325 4.66669 13.2299 4.66669 24.4999C4.66669 35.7699 15.12 44.9166 28 44.9166C40.88 44.9166 51.3334 35.7699 51.3334 24.4999C51.3334 13.2299 40.88 4.08325 28 4.08325ZM28 10.2083C31.8734 10.2083 35 12.9441 35 16.3333C35 19.7224 31.8734 22.4583 28 22.4583C24.1267 22.4583 21 19.7224 21 16.3333C21 12.9441 24.1267 10.2083 28 10.2083ZM28 39.1999C22.1667 39.1999 17.01 36.5866 14 32.6257C14.07 28.5628 23.3334 26.3374 28 26.3374C32.6434 26.3374 41.93 28.5628 42 32.6257C38.99 36.5866 33.8334 39.1999 28 39.1999Z"[m
+[32m +                                        fill="white" />[m
+[32m +                                </g>[m
+[32m +                                <defs>[m
+[32m +                                    <clipPath id="clip0_114_13">[m
+[32m +                                        <rect width="56" height="49" fill="white" />[m
+[32m +                                    </clipPath>[m
+[32m +                                </defs>[m
+[32m +                            </svg>[m
+[32m +[m
+[32m +[m
+[32m +[m
+[32m +                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">[m
+[32m +                                <li><a class="dropdown-item" href="#">Configuracion</a></li>[m
+[32m +                                <li><a class="dropdown-item" href="#">Another action</a></li>[m
+[32m +                                <li>[m
+[32m +                                    <hr class="dropdown-divider">[m
+[32m +                                </li>[m
+[32m +                                <li><a class="dropdown-item text-danger" href="../controllers/logOut.php">Cerrar[m
+[32m +                                        Sesion</a></li>[m
+[32m +                            </ul>[m
+[32m +                        </li>[m
+[32m +[m
+[32m +[m
+[32m +                        <?php[m
+[32m +                            } else {[m
+[32m +                                ?>[m
+[32m +                        <a href="pageLogin.php">[m
+[32m +[m
+[32m +                            <svg class="me-3" width="54" height="40" viewBox="0 0 56 49" fill="none"[m
+[32m +                                xmlns="http://www.w3.org/2000/svg" type="button">[m
+[32m +[m
+[32m +                                <g clip-path="url(#clip0_114_13)">[m
+[32m +                                    <path[m
+[32m +                                        d="M28 4.08325C15.12 4.08325 4.66669 13.2299 4.66669 24.4999C4.66669 35.7699 15.12 44.9166 28 44.9166C40.88 44.9166 51.3334 35.7699 51.3334 24.4999C51.3334 13.2299 40.88 4.08325 28 4.08325ZM28 10.2083C31.8734 10.2083 35 12.9441 35 16.3333C35 19.7224 31.8734 22.4583 28 22.4583C24.1267 22.4583 21 19.7224 21 16.3333C21 12.9441 24.1267 10.2083 28 10.2083ZM28 39.1999C22.1667 39.1999 17.01 36.5866 14 32.6257C14.07 28.5628 23.3334 26.3374 28 26.3374C32.6434 26.3374 41.93 28.5628 42 32.6257C38.99 36.5866 33.8334 39.1999 28 39.1999Z"[m
+[32m +                                        fill="white" />[m
+[32m +                                </g>[m
+[32m +                                <defs>[m
+[32m +                                    <clipPath id="clip0_114_13">[m
+[32m +                                        <rect width="56" height="49" fill="white" />[m
+[32m +                                    </clipPath>[m
+[32m +                                </defs>[m
+[32m +                            </svg>[m
+[32m +                        </a>[m
+[32m +                        <?php[m
+[32m +                            }[m
+[32m +                            ?>[m
+[32m +                    </nav>[m
+[32m +                </div>[m
+[32m +                <div class="collapse navbar-collapse" id="navbarSupportedContent">[m
+[32m +                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">[m
+[32m +                        <li class="nav-item">[m
+[32m +                            <a class="nav-link active" aria-current="page" href="index.php">Inicio</a>[m
+[32m +                        </li>[m
+[32m +                        <?php[m
+[32m +[m
+[32m +                        if (isset($_SESSION["login"])) {[m
+[32m +                            ?>[m
+[32m +                        <li class="nav-item">[m
+[32m +                            <a class="nav-link" href="misPedidos.php">Mis Compras</a>[m
+[32m +                        </li>[m
+[32m +                        <?php[m
+[32m +                        }[m
+[32m +                        ?>[m
+[32m +                        <li class="nav-item">[m
+[32m +                            <a class="nav-link" href="contact.php">Contáctanos</a>[m
+[32m +[m
+[32m +                        </li>[m
+[32m +[m
+[32m +[m
+[32m +                    </ul>[m
+[32m +                    <form class="d-flex justify-content-center align-items-center d-none d-sm-none d-lg-inline me-5">[m
+[32m +                        <div class="d-flex justify-content-center align-items-center  search-input rounded-pill ">[m
+[32m +                            <input style="width:250px;  height:50px;" class="border-0 form-control  rounded-pill "[m
+[32m +                                type="search" placeholder="Buscar...">[m
+[32m +[m
+[32m +                            <div class="d-flex align-items-center ">[m
+[32m +                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"[m
+[32m +                                    xmlns="http://www.w3.org/2000/svg">[m
+[32m +                                    <path[m
+[32m +                                        d="M19 19L13 13M15 8C15 9.38447 14.5895 10.7378 13.8203 11.889C13.0511 13.0401 11.9579 13.9373 10.6788 14.4672C9.3997 14.997 7.99224 15.1356 6.63437 14.8655C5.2765 14.5954 4.02922 13.9287 3.05026 12.9497C2.07129 11.9708 1.4046 10.7235 1.13451 9.36563C0.86441 8.00777 1.00303 6.6003 1.53285 5.32122C2.06266 4.04213 2.95987 2.94888 4.11101 2.17971C5.26216 1.41054 6.61553 1 8 1C9.85652 1 11.637 1.7375 12.9497 3.05025C14.2625 4.36301 15 6.14348 15 8Z"[m
+[32m +                                        stroke="#918F8F" stroke-width="2" stroke-linecap="round"[m
+[32m +                                        stroke-linejoin="round" />[m
+[32m +                                </svg>[m
+[32m +                            </div>[m
+[32m +[m
+[32m +                        </div>[m
+[32m +                    </form>[m
+[32m +                    <!-- buttons desktop -->[m
+[32m +[m
+[32m +                    <div class="me-5 d-none d-sm-none d-lg-inline">[m
+[32m +                        <nav class="nav">[m
+[32m +                            <li class="nav-item dropdown">[m
+[32m +                                <?php[m
+[32m +[m
+[32m +                                if (isset($_SESSION["login"])) {[m
+[32m +                                    ?>[m
+[32m +                                <a href="pageCarrito.php">[m
+[32m++=======[m
+[32m+                                 <a href="#">[m
+[32m++>>>>>>> 159bdcda60e67860369f168d80fd81f9f0eb3430[m
+                                      <!-- Button cart Desktop -->[m
+                                      <svg class="me-3" width="54" height="40" viewBox="0 0 54 40" fill="none"[m
+                                          xmlns="http://www.w3.org/2000/svg">[m
+[1mdiff --cc includes/index.php[m
+[1mindex 9974018,c2377e1..0000000[m
+[1m--- a/includes/index.php[m
+[1m+++ b/includes/index.php[m
+[36m@@@ -42,28 -42,63 +42,83 @@@[m [minclude 'header.php'[m
+      <hr>[m
+      <section class="container ">[m
+          <div class="row d-flex justify-content-center">[m
+[31m- [m
+              <?php[m
+[31m-             for ($i = 0; $i < 10; $i++) {[m
+[32m+             include("../controllers/conection_db.php");[m
+[32m+             $con = conectar();[m
+[32m+             $sql = "SELECT * FROM productos as p join masvendidos as mv on p.id_prod = mv.id_prod order by mv.cantidad DESC; ";[m
+[32m+             $result = mysqli_query($con, $sql);[m
+[32m+             while ($dataUser = mysqli_fetch_array($result)) {[m
+                  ?>[m
+  [m
+[32m++<<<<<<< HEAD[m
+[32m +            <div class="card m-3 color-text " style="max-width: 18rem;">[m
+[32m +                <div class="row ">[m
+[32m +[m
+[32m +                    <img src="../resources/imgs/mascara3.webp" class="card-img-top " alt="...">[m
+[32m +[m
+[32m +                    <div class="card-body col-7">[m
+[32m +                        <h5 class="card-title">Card title</h5>[m
+[32m +                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of[m
+[32m +                            the[m
+[32m +                            card's content.</p>[m
+[32m +                        <a href="detalleArticulo.php" class="btn text-light">Ver Detalles</a>[m
+[32m +[m
+[32m +                    </div>[m
+[32m +                </div>[m
+[32m +            </div>[m
+[32m +[m
+[32m +            <?php[m
+[32m++=======[m
+[32m+                 <div class="card m-3 color-text " style="max-width: 18rem;">[m
+[32m+ [m
+[32m+                     <div class="row ">[m
+[32m+ [m
+[32m+                         <img class="img-fluid " style="height: 18rem;" src=" <?php echo $dataUser['img'] ?>"[m
+[32m+                             class="card-img-top " alt="...">[m
+[32m+ [m
+[32m+                         <div class="card-body col-7">[m
+[32m+                             <h5 class="card-title">[m
+[32m+                                 <?php echo $dataUser["nombre"]; ?>[m
+[32m+                             </h5>[m
+[32m+                             <div class=" m-2">[m
+[32m+ [m
+[32m+                                 <?php[m
+[32m+                                 for ($i = 0; $i < $dataUser['calificacion']; $i++) {[m
+[32m+ [m
+[32m+                                     ?>[m
+[32m+                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"[m
+[32m+                                         class="bi bi-star-fill text-warning" viewBox="0 0 16 16">[m
+[32m+                                         <path[m
+[32m+                                             d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />[m
+[32m+                                     </svg>[m
+[32m+                                     <?php[m
+[32m+                                 }[m
+[32m+                                 ?>[m
+[32m+                             </div>[m
+[32m+                             <div class="d-flex justify-content-between">[m
+[32m+ [m
+[32m+                                 <h4 class="card-title text-primary">[m
+[32m+                                     $[m
+[32m+                                     <?php echo $dataUser["precio"]; ?>[m
+[32m+                                 </h4>[m
+[32m+                                 <h4 class="card-title text-success">[m
+[32m+                                     %[m
+[32m+                                     <?php echo $dataUser["descuento"]; ?>[m
+[32m+                                 </h4>[m
+[32m+                             </div>[m
+[32m+                             <p class="card-text">[m
+[32m+                                 <?php echo $dataUser["descripcion"]; ?>[m
+[32m+                             </p>[m
+[32m+                             <a href=<?php echo "detalleArticulo.php?id_art=" . $dataUser["id_prod"]; ?>[m
+[32m+                                 class="btn text-light">Ver[m
+[32m+                                 Detalles</a>[m
+[32m+ [m
+[32m+                         </div>[m
+[32m+                     </div>[m
+[32m+                 </div>[m
+[32m+ [m
+[32m+                 <?php[m
+[32m++>>>>>>> 159bdcda60e67860369f168d80fd81f9f0eb3430[m
+              }[m
+              ?>[m
+          </div>[m
+[1mdiff --cc includes/misPedidos.php[m
+[1mindex af46758,c11b0a4..0000000[m
+[1m--- a/includes/misPedidos.php[m
+[1m+++ b/includes/misPedidos.php[m
+[36m@@@ -1,49 -1,112 +1,147 @@@[m
+[31m -<?php[m
+[31m -session_start();[m
+[31m -if (!$_SESSION["login"]) {[m
+[31m -    header('location:pageLogin.php?error_session=Favor de Iniciar Sesion!');[m
+[31m -}[m
+[31m -include 'header.php';[m
+[31m -?>[m
+[32m +    <?php[m
+[32m +    session_start();[m
+[32m +    if (!$_SESSION["login"]) {[m
+[32m +        header('location:pageLogin.php?error_session=Favor de Iniciar Sesion!');[m
+[32m +    }[m
+[32m +    include 'header.php';[m
+[32m +    ?>[m
+  [m
+  [m
+[32m++<<<<<<< HEAD[m
+[32m +    <main class="container mt-3">[m
+[32m +        <section class="d-flex justify-content-between">[m
+[32m +            <h3 class="color-text">Mis Pedidos</h3>[m
+[32m +            <div>[m
+[32m++=======[m
+[32m+ <main class="container " style=" margin-top: 150px; margin-bottom: 110px;">[m
+[32m+     <section class="d-flex justify-content-between">[m
+[32m+         <h3 class="color-text">Mis Pedidos</h3>[m
+[32m+         <div>[m
+[32m++>>>>>>> 159bdcda60e67860369f168d80fd81f9f0eb3430[m
+  [m
+[31m -            <a href="pageCatalogo.php">[m
+[32m +                <a href="pageCatalogo.php">[m
+  [m
+[31m -                <button class="btn text-light rounded-pill me-5">Catalogo</button>[m
+[31m -            </a>[m
+[32m +                    <button class="btn text-light rounded-pill me-5">Catalogo</button>[m
+[32m +                </a>[m
+  [m
+[32m++<<<<<<< HEAD[m
+[32m +            </div>[m
+[32m +        </section>[m
+[32m +        <hr>[m
+[32m +        <section class="container">[m
+[32m +            <div class="card mb-3" style="max-width: 700px;">[m
+[32m +                <div class="row g-0">[m
+[32m +                    <div class="col-md-4 d-flex align-items-center justify-content-center">[m
+[32m +                        <img src="../resources/imgs/mascara3.png" class="img-fluid rounded-start" alt="Imagen Mascara">[m
+[32m +                    </div>[m
+[32m +                    <div class="col-md-8">[m
+[32m +                        <div class="card-body">[m
+[32m +                            <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"[m
+[32m +                                    class="bi bi-star-fill" viewBox="0 0 16 16">[m
+[32m +                                    <path[m
+[32m +                                        d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />[m
+[32m +                                </svg></span>[m
+[32m +                            <h5 class="card-title">Comprado 12-05-2023</h5>[m
+[32m +                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to[m
+[32m +                                additional content. This content is a little bit longer.</p>[m
+[32m +                            <p class="card-text"><small class="text-muted">Total $12000</small></p>[m
+[32m++=======[m
+[32m+         </div>[m
+[32m+     </section>[m
+[32m+     <hr>[m
+[32m+     <section class="container">[m
+[32m+         <div class="row justify-content-center">[m
+[32m+             <?php[m
+[32m+             include("../controllers/conection_db.php");[m
+[32m+             $con = conectar();[m
+[32m+             // $sql = "SELECT p.nombre, p.descripcion, p.calificacion, o.precio_total from ordenes as o[m
+[32m+             //             join carrito as c[m
+[32m+             //             on o.id_carrito=c.id_carrito[m
+[32m+             //             join productosencarrito as pc[m
+[32m+             //             on pc.id_carrito=c.id_carrito[m
+[32m+             //             join productos as p[m
+[32m+             //             on pc.id_prod = p.id_prod[m
+[32m+             //             where o.id_usr = " . $_SESSION['id_usr'] . " and o.status='pagado';";[m
+[32m+             $sql = "SELECT * FROM ordenes WHERE id_usr = " . $_SESSION['id_usr'] . " and status='pagado';";[m
+[32m+             $result = mysqli_query($con, $sql);[m
+[32m+             $numPedido = 0;[m
+[32m+             while ($dataProd = mysqli_fetch_array($result)) {[m
+[32m+                 $numPedido++;[m
+[32m+                 ?>[m
+[32m+             <div class="card m-3 col-lg-6" style="max-width: 400px;">[m
+[32m+                 <div class="row g-0">[m
+[32m+                     <div class="col-md-8">[m
+[32m+                         <div class="card-body">[m
+[32m+                             <div class="card-body">[m
+[32m+                                 <h5 class="card-title color-text">Pedido[m
+[32m+                                     <?php echo " " . $numPedido ?>:[m
+[32m+                                 </h5>[m
+[32m+                                 <table class="table">[m
+[32m+                                     <thead>[m
+[32m+                                         <tr>[m
+[32m+                                             <th class="color-text" scope="col"></th>[m
+[32m+                                             <th class="color-text" scope="col">Producto</th>[m
+[32m+                                             <th class="color-text" scope="col">Cantidad</th>[m
+[32m+                                             <th class="color-text" scope="col">precio x cantidad</th>[m
+[32m+                                         </tr>[m
+[32m+                                     </thead>[m
+[32m+                                     <tbody>[m
+[32m+                                         <?php[m
+[32m+                                             $totalPrice = 0;[m
+[32m+                                             $sqlCart = "SELECT p.img,p.nombre,p.precio,pc.cantidad, p.descripcion, p.calificacion from productos as p join productosencarrito as pc on pc.id_prod = p.id_prod where pc.id_carrito =" . $dataProd['id_carrito'] . " and pc.status='pagado'; ";[m
+[32m+                                             $resultCart = mysqli_query($con, $sqlCart);[m
+[32m+                                             $numItem = 0;[m
+[32m+                                             while ($dataCart = mysqli_fetch_array($resultCart)) {[m
+[32m+                                                 $numItem++;[m
+[32m+                                                 ?>[m
+[32m+                                         <tr>[m
+[32m+                                             <th class="color-text" scope="row">[m
+[32m+                                                 <img src="<?php echo $dataCart["img"]; ?>" alt="Imagen"[m
+[32m+                                                     style="width: 50px;">[m
+[32m+                                             </th>[m
+[32m+                                             <td class="color-text">[m
+[32m+                                                 <?php echo $dataCart["nombre"]; ?>[m
+[32m+                                             </td>[m
+[32m+                                             <td class="color-text">[m
+[32m+                                                 <?php echo $dataCart["cantidad"]; ?>[m
+[32m+                                             </td>[m
+[32m+                                             <td class="color-text">[m
+[32m+                                                 <?php echo "$" . intval($dataCart["precio"]) * intval($dataCart["cantidad"]) ?>[m
+[32m+ [m
+[32m+                                             </td>[m
+[32m+                                         </tr>[m
+[32m+ [m
+[32m+ [m
+[32m+                                         <?php[m
+[32m+                                             }[m
+[32m+                                             ?>[m
+[32m+ [m
+[32m+                                         </ul>[m
+[32m+                                     </tbody>[m
+[32m+                                 </table>[m
+[32m+                                 <h5 class="card-total d-flex justify-content-end text-danger">Total:[m
+[32m+                                     <?php echo " $" . $dataProd['precio_total']; ?>[m
+[32m+                                 </h5>[m
+[32m+                             </div>[m
+[32m++>>>>>>> 159bdcda60e67860369f168d80fd81f9f0eb3430[m
+                          </div>[m
+                      </div>[m
+                  </div>[m
+              </div>[m
+[32m++<<<<<<< HEAD[m
+[32m +        </section>[m
+[32m +    </main>[m
+[32m++=======[m
+[32m+ [m
+[32m+             <?php[m
+[32m+             }[m
+[32m+             ?>[m
+[32m+         </div>[m
+[32m+ [m
+[32m+     </section>[m
+[32m+ </main>[m
+[32m++>>>>>>> 159bdcda60e67860369f168d80fd81f9f0eb3430[m
+  [m
+[31m -<?php[m
+[32m +    <?php[m
+  include 'footer.php';[m
+  ?>[m
+[1mdiff --cc includes/modalEliminar.php[m
+[1mindex 4f084b7,2544dc0..0000000[m
+[1m--- a/includes/modalEliminar.php[m
+[1m+++ b/includes/modalEliminar.php[m
+[36m@@@ -1,25 -1,96 +1,123 @@@[m
+  <?php[m
+[32m++<<<<<<< HEAD[m
+[32m +include "header.php";[m
+[32m +?>[m
+[32m +[m
+[32m +<div class=" d-flex justify-content-center">[m
+[32m +[m
+[32m +    <div class="py-5 text-center">[m
+[32m +        <h2>¿Desea eliminar el articulo de su carrito de compra?</h2>[m
+[32m +        [m
+[32m +    </div>[m
+[32m +   [m
+[32m +</div>[m
+[32m +    <hr class="mb-4">[m
+[32m +[m
+[32m +<div class="d-flex justify-content-center">[m
+[32m +        <div class="row">[m
+[32m +                <div class="col-md-6 mb-3">[m
+[32m +                    <a href="pageCarrito.php" class="btn text-light">Cancelar</a>[m
+[32m +                               [m
+[32m +                </div>[m
+[32m +                <div class="col-md-6 mb-4">[m
+[32m +                    <a href="#" class="btn text-light">Eliminar</a>[m
+[32m +                </div>[m
+[32m +        </div>[m
+[31m- </div>[m
+[32m++</div>[m
+[32m++=======[m
+[32m+ session_start();[m
+[32m+ if (!$_SESSION["login"]) {[m
+[32m+     header('location:pageLogin.php?error_session=Favor de Iniciar Sesion!');[m
+[32m+ }[m
+[32m+ include "header.php";[m
+[32m+ ?>[m
+[32m+ [m
+[32m+ <div class=" d-flex justify-content-center" style=" margin-top: 100px;">[m
+[32m+ [m
+[32m+     <div class="py-5 text-center">[m
+[32m+         <h2>¿Desea eliminar este articulo de su carrito de compra?</h2>[m
+[32m+ [m
+[32m+     </div>[m
+[32m+ [m
+[32m+ </div>[m
+[32m+ <hr class="mb-4">[m
+[32m+ <div class="container">[m
+[32m+     <div class="d-flex justify-content-center">[m
+[32m+ [m
+[32m+ [m
+[32m+         <?php[m
+[32m+         include("../controllers/conection_db.php");[m
+[32m+         $con = conectar();[m
+[32m+         $sqlArt = "select p.img,p.nombre, p.precio, pc.cantidad ,p.id_prod[m
+[32m+     from productosencarrito as pc[m
+[32m+     join productos as p[m
+[32m+     on pc.id_prod=p.id_prod[m
+[32m+     join carrito as c[m
+[32m+     on pc.id_carrito=c.id_carrito[m
+[32m+     where c.id_usr = " . $_SESSION['id_usr'] . " and c.status='active';";[m
+[32m+         $result = mysqli_query($con, $sqlArt);[m
+[32m+         if (mysqli_num_rows($result) == 1) {[m
+[32m+             $dataArt = mysqli_fetch_array($result);[m
+[32m+             ?>[m
+[32m+         <div class="card mb-3" style="max-width: 500px;">[m
+[32m+             <div class="row g-0">[m
+[32m+                 <div class="col-md-4 d-flex align-items-center justify-content-center">[m
+[32m+                     <img src="<?php echo $dataArt["img"] ?>" class="img-fluid rounded-start" alt="Imagen Mascara">[m
+[32m+                 </div>[m
+[32m+                 <div class="col-md-8 d-flex align-items-center justify-content-center">[m
+[32m+                     <div class="card-body ">[m
+[32m+                         <h5 class="card-title">Producto:[m
+[32m+                             <?php echo $dataArt["nombre"] ?>[m
+[32m+                         </h5>[m
+[32m+                         <h5 class="card-text">Precio Unitario:[m
+[32m+                             $[m
+[32m+                             <?php echo $dataArt["precio"] ?>[m
+[32m+                         </h5>[m
+[32m+                         <h5 class="card-text">Por los[m
+[32m+                             <?php echo $dataArt["cantidad"] ?> productos:[m
+[32m+                             $[m
+[32m+                             <?php echo intval($dataArt["precio"]) * intval($dataArt["cantidad"]) ?>[m
+[32m+                         </h5>[m
+[32m+                         <!-- Cantidad -->[m
+[32m+                         <div class=" d-flex align-items-center ">[m
+[32m+                             <h5 class="card-table-cantidad">Cantidad:[m
+[32m+                             </h5>[m
+[32m+                             <br>[m
+[32m+                             <div class="btn-group m-2" role="group" aria-label="Basic example">[m
+[32m+                                 <!-- <button type="button" class="btn text-light" onclick="sumar()">+</button> -->[m
+[32m+                                 <!-- <span id="contadorArticle" style="width: 45px; height: 40px;"[m
+[32m+                                     class="color-text fs-2  d-flex justify-content-center align-items-center border">[m
+[32m+                                 </span> -->[m
+[32m+                                 <input class="color-text fs-2  d-flex justify-content-center align-items-center border"[m
+[32m+                                     style="width: 45px; height: 40px;" type="text" name="cantidad" id="contadorArticle"[m
+[32m+                                     value=" <?php echo $dataArt["cantidad"] ?>">[m
+[32m+                                 <!-- <button type="button" class="btn text-light" onclick="restar()">-</button> -->[m
+[32m+                             </div>[m
+[32m+                         </div>[m
+[32m+                     </div>[m
+[32m+ [m
+[32m+                 </div>[m
+[32m+             </div>[m
+[32m+ [m
+[32m+ [m
+[32m+         </div>[m
+[32m+         <?php[m
+[32m+         }[m
+[32m+         ?>[m
+[32m+     </div>[m
+[32m+ [m
+[32m+     <div class="d-flex justify-content-center">[m
+[32m+         <div class="row">[m
+[32m+             <div class="col-md-6 mb-3">[m
+[32m+                 <a href="pageCarrito.php" class="btn text-light">Cancelar</a>[m
+[32m+ [m
+[32m+             </div>[m
+[32m+             <div class="col-md-6 mb-4">[m
+[32m+                 <form action="../controllers/eliminarArticleCart.php" method="POST">[m
+[32m+                     <input type="hidden" name="id_prod" value=<?php echo $dataArt["id_prod"] ?>>[m
+[32m+                     <button type="submit" class="btn text-light">Eliminar</button>[m
+[32m+                 </form>[m
+[32m+             </div>[m
+[32m+         </div>[m
+[31m -    </div>[m
+[32m++    </div>[m
+[32m++>>>>>>> 159bdcda60e67860369f168d80fd81f9f0eb3430[m
+[1mdiff --cc includes/pageCarrito.php[m
+[1mindex db08ffb,5ec91cf..0000000[m
+[1m--- a/includes/pageCarrito.php[m
+[1m+++ b/includes/pageCarrito.php[m
+[36m@@@ -6,69 -6,150 +6,211 @@@[m [mif (!$_SESSION["login"]) [m
+  include 'header.php';[m
+  ?>[m
+  <!-- carrito -->[m
+[32m++<<<<<<< HEAD[m
+[32m +<main class="container mt-3">[m
+[32m +    <section class="d-flex justify-content-between">[m
+[32m +        <h3 class="color-text">Mis Pedidos</h3>[m
+[32m++=======[m
+[32m+ <main class="container " style=" margin-top: 150px; margin-bottom:50px;">[m
+[32m+     <section class="d-flex justify-content-between">[m
+[32m+         <h3 class="color-text">Mi Carrito</h3>[m
+[32m++>>>>>>> 159bdcda60e67860369f168d80fd81f9f0eb3430[m
+  [m
+      </section>[m
+      <hr>[m
+      <!-- Resumen de compra -->[m
+      <div class="d-flex flex-column flex-sm-column flex-md-row flex-lg-row">[m
+  [m
+[32m++<<<<<<< HEAD[m
+[32m +        <section class="container">[m
+[32m++=======[m
+[32m+ [m
+[32m+         <section class="container-fluid">[m
+[32m+             <!-- Producto en carrito -->[m
+[32m+             <?php[m
+[32m+             include("../controllers/conection_db.php");[m
+[32m+             $con = conectar();[m
+[32m+             $totalPrice = 0;[m
+[32m+             $sqlCart = "select p.img,p.nombre, p.precio, pc.cantidad ,p.id_prod[m
+[32m+                         from productosencarrito as pc[m
+[32m+                         join productos as p[m
+[32m+                         on pc.id_prod=p.id_prod[m
+[32m+                         join carrito as c[m
+[32m+                         on pc.id_carrito=c.id_carrito[m
+[32m+                         where c.id_usr = " . $_SESSION['id_usr'] . " and c.status='active';";[m
+[32m+             $resultCart = mysqli_query($con, $sqlCart);[m
+[32m+ [m
+[32m+             while ($dataCart = mysqli_fetch_array($resultCart)) {[m
+[32m+                 $totalPrice = (intval($dataCart["precio"]) * intval($dataCart["cantidad"])) + $totalPrice;[m
+[32m+                 ?>[m
+[32m+             <div class="card mb-3" style="max-width: 500px;">[m
+[32m+                 <div class="row g-0">[m
+[32m+                     <div class="col-md-4 d-flex align-items-center justify-content-center">[m
+[32m+                         <img src="<?php echo $dataCart["img"] ?>" class="img-fluid rounded-start" alt="Imagen Mascara">[m
+[32m+                     </div>[m
+[32m+                     <div class="col-md-8 d-flex align-items-center justify-content-center">[m
+[32m+                         <div class="card-body ">[m
+[32m+                             <h5 class="card-title">Producto:[m
+[32m+                                 <?php echo $dataCart["nombre"] ?>[m
+[32m+                             </h5>[m
+[32m+                             <h5 class="card-text">Precio Unitario:[m
+[32m+                                 $[m
+[32m+                                 <?php echo $dataCart["precio"] ?>[m
+[32m+                             </h5>[m
+[32m+                             <h5 class="card-text">Por los[m
+[32m+                                 <?php echo $dataCart["cantidad"] ?> productos:[m
+[32m+                                 $[m
+[32m+                                 <?php echo intval($dataCart["precio"]) * intval($dataCart["cantidad"]) ?>[m
+[32m+                             </h5>[m
+[32m+                             <!-- Cantidad -->[m
+[32m+                             <div class=" d-flex align-items-center ">[m
+[32m+                                 <h5 class="card-table-cantidad">Cantidad:[m
+[32m+                                 </h5>[m
+[32m+                                 <br>[m
+[32m+                                 <div class="btn-group m-2" role="group" aria-label="Basic example">[m
+[32m+                                     <!-- <button type="button" class="btn text-light" onclick="sumar()">+</button> -->[m
+[32m+                                     <!-- <span id="contadorArticle" style="width: 45px; height: 40px;"[m
+[32m+                                             class="color-text fs-2  d-flex justify-content-center align-items-center border">[m
+[32m+                                         </span> -->[m
+[32m+                                     <input[m
+[32m+                                         class="color-text fs-2  d-flex justify-content-center align-items-center border"[m
+[32m+                                         style="width: 45px; height: 40px;" type="text" name="cantidad"[m
+[32m+                                         id="contadorArticle" value=" <?php echo $dataCart["cantidad"] ?>">[m
+[32m+                                     <!-- <button type="button" class="btn text-light" onclick="restar()">-</button> -->[m
+[32m+                                 </div>[m
+[32m+                             </div>[m
+[32m+                         </div>[m
+[32m+ [m
+[32m+                     </div>[m
+[32m+                     <!-- Eliminar -->[m
+[32m+ [m
+[32m+                     <div class="col-md-20 d-flex align-items-center justify-content-center m-2">[m
+[32m+                         <a href=<?php echo "modalEliminar.php?id_prod=".$dataCart['id_prod']; ?>[m
+[32m+                             class="btn text-light">Eliminar</a>[m
+[32m+                     </div>[m
+[32m+                 </div>[m
+[32m+             </div>[m
+[32m+             <?php[m
+[32m+             }[m
+[32m+             ?>[m
+[32m+ [m
+[32m+ [m
+[32m+         </section>[m
+[32m+         <section class="container">[m
+[32m+ [m
+[32m++>>>>>>> 159bdcda60e67860369f168d80fd81f9f0eb3430[m
+              <div class="card" style="max-width: 500px;">[m
+                  <div class="card-header">[m
+                      Resumen de Compra[m
+                  </div>[m
+                  <div class="card-body">[m
+[32m++<<<<<<< HEAD[m
+[32m +                    <h5 class="card-title">Producto</h5>[m
+[32m +                    <p class="card-text">Envio</p>[m
+[32m +                    <h5 class="card-total">Total:</h5>[m
+[32m +                    <a href="pageConfirmar1.php" class="btn text-light">Comprar</a>[m
+[32m +                </div>[m
+[32m +            </div>[m
+[32m +            <br>[m
+[32m +        </section>[m
+[32m +        <section class="container-fluid">[m
+[32m +            <!-- Producto en carrito -->[m
+[32m +            <?php[m
+[32m +            for ($i = 0; $i < 10; $i++) {[m
+[32m +                ?>[m
+[32m +                <div class="card mb-3" style="max-width: 500px;">[m
+[32m +                    <div class="row g-0">[m
+[32m +                        <div class="col-md-4 d-flex align-items-center justify-content-center">[m
+[32m +                            <img src="../resources/imgs/mascara3.webp" class="img-fluid rounded-start" alt="Imagen Mascara">[m
+[32m +                        </div>[m
+[32m +                        <div class="col-md-8 d-flex align-items-center justify-content-center">[m
+[32m +                            <div class="card-body ">[m
+[32m +                                <h5 class="card-title">Producto: </h5>[m
+[32m +                                <h5 class="card-text">Precio: </h6>[m
+[32m +                                    <!-- Cantidad -->[m
+[32m +                                    <div class=" d-flex align-items-center ">[m
+[32m +                                        <h5 class="card-table-cantidad">Cantidad: </h5>[m
+[32m +                                        <br>[m
+[32m +                                        <div class="btn-group m-2" role="group" aria-label="Basic example">[m
+[32m +                                            <button type="button" class="btn text-light" onclick="sumar()">+</button>[m
+[32m +                                            <span id="contadorArticle" style="width: 45px; height: 40px;"[m
+[32m +                                                class="color-text fs-2  d-flex justify-content-center align-items-center border">[m
+[32m +                                            </span>[m
+[32m +                                            <button type="button" class="btn text-light" onclick="restar()">-</button>[m
+[32m +                                        </div>[m
+[32m +                                    </div>[m
+[32m +                            </div>[m
+[32m +[m
+[32m +                        </div>[m
+[32m +                        <!-- Eliminar -->[m
+[32m +[m
+[32m +                        <div class="col-md-20 d-flex align-items-center justify-content-center m-2">[m
+[32m +                            <a href="modalEliminar.php" class="btn text-light">Eliminar</a>[m
+[32m +                        </div>[m
+[32m +                    </div>[m
+[32m +                </div>[m
+[32m +                <?php[m
+[32m +            }[m
+[32m +            ?>[m
+[32m +[m
+[32m++=======[m
+[32m+                     <h5 class="card-title">Productos:</h5>[m
+[32m+                     <table class="table">[m
+[32m+                         <thead>[m
+[32m+                             <tr>[m
+[32m+                                 <th scope="col">#</th>[m
+[32m+                                 <th scope="col">Producto</th>[m
+[32m+                                 <th scope="col">Cantidad</th>[m
+[32m+                                 <th scope="col">precio x cantidad</th>[m
+[32m+                             </tr>[m
+[32m+                         </thead>[m
+[32m+                         <tbody>[m
+[32m+                             <?php[m
+[32m+                             $sqlCart = "select p.nombre, p.precio, pc.cantidad[m
+[32m+                         from productosencarrito as pc[m
+[32m+                         join productos as p[m
+[32m+                         on pc.id_prod=p.id_prod[m
+[32m+                         join carrito as c[m
+[32m+                         on pc.id_carrito=c.id_carrito[m
+[32m+                         where c.id_usr = " . $_SESSION['id_usr'] . " and c.status='active';";[m
+[32m+                             $resultCart = mysqli_query($con, $sqlCart);[m
+[32m+                             $numItem = 0;[m
+[32m+                             while ($dataCart = mysqli_fetch_array($resultCart)) {[m
+[32m+                                 $numItem++;[m
+[32m+                                 ?>[m
+[32m+                             <tr>[m
+[32m+                                 <th scope="row">[m
+[32m+                                     <?php echo $numItem ?>[m
+[32m+                                 </th>[m
+[32m+                                 <td>[m
+[32m+                                     <?php echo $dataCart["nombre"]; ?>[m
+[32m+                                 </td>[m
+[32m+                                 <td>[m
+[32m+                                     <?php echo $dataCart["cantidad"]; ?>[m
+[32m+                                 </td>[m
+[32m+                                 <td>[m
+[32m+                                     <?php echo "$" . intval($dataCart["precio"]) * intval($dataCart["cantidad"]) ?>[m
+[32m+ [m
+[32m+                                 </td>[m
+[32m+                             </tr>[m
+[32m+ [m
+[32m+ [m
+[32m+                             <?php[m
+[32m+                             }[m
+[32m+                             ?>[m
+[32m+ [m
+[32m+                             </ul>[m
+[32m+                         </tbody>[m
+[32m+                     </table>[m
+[32m+                     <h5 class="card-total d-flex justify-content-end">Total:[m
+[32m+                         <?php echo " $" . $totalPrice; ?>[m
+[32m+                     </h5>[m
+[32m+                     <a href=<?php echo "pageConfirmar1.php?id_usr=" . $_SESSION['id_usr'] ."&totalprice=". $totalPrice; ?>[m
+[32m+                         class="btn text-light">Comprar</a>[m
+[32m+                 </div>[m
+[32m+             </div>[m
+[32m+             <br>[m
+[32m++>>>>>>> 159bdcda60e67860369f168d80fd81f9f0eb3430[m
+  [m
+          </section>[m
+      </div>[m
+[1mdiff --cc includes/pageCatalogo.php[m
+[1mindex 0b6f411,ae4a9e7..0000000[m
+[1m--- a/includes/pageCatalogo.php[m
+[1m+++ b/includes/pageCatalogo.php[m
+[36m@@@ -28,18 -28,62 +28,75 @@@[m [minclude 'header.php'[m
+      <section class="container-fluid">[m
+          <div class="row d-flex justify-content-center">[m
+              <?php[m
+[31m-             for ($i = 0; $i < 10; $i++) {[m
+[32m+             include("../controllers/conection_db.php");[m
+[32m+             $con = conectar();[m
+[32m+             $sql = "Select * from productos ;";[m
+[32m+             $result = mysqli_query($con, $sql);[m
+[32m+             while ($dataUser = mysqli_fetch_array($result)) {[m
+                  ?>[m
+[32m++<<<<<<< HEAD[m
+[32m +            <div class="card-product m-3" style="min-width: 18rem;">[m
+[32m +                <img src="../resources/imgs/mascara3.webp" class="card-img-top" alt="...">[m
+[32m +                <div class="card-body">[m
+[32m +                    <h5 class="card-title">Card title</h5>[m
+[32m +                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the[m
+[32m +                        card's content.</p>[m
+[32m +                    <a href="detalleArticulo.php" class="btn text-light">Ver Detalles</a>[m
+[32m +                </div>[m
+[32m +            </div>[m
+[32m +            <?php[m
+[32m++=======[m
+[32m+ [m
+[32m+                 <div class="card m-3 color-text " style="max-width: 18rem;">[m
+[32m+ [m
+[32m+                     <div class="row ">[m
+[32m+ [m
+[32m+                         <img class="img-fluid " style="height: 18rem;" src=" <?php echo $dataUser['img'] ?>"[m
+[32m+                             class="card-img-top " alt="...">[m
+[32m+ [m
+[32m+                         <div class="card-body col-7">[m
+[32m+                             <h5 class="card-title">[m
+[32m+                                 <?php echo $dataUser["nombre"]; ?>[m
+[32m+                             </h5>[m
+[32m+                             <div class=" m-2">[m
+[32m+ [m
+[32m+                                 <?php[m
+[32m+                                 for ($i = 0; $i < $dataUser['calificacion']; $i++) {[m
+[32m+ [m
+[32m+                                     ?>[m
+[32m+                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"[m
+[32m+                                         class="bi bi-star-fill text-warning" viewBox="0 0 16 16">[m
+[32m+                                         <path[m
+[32m+                                             d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />[m
+[32m+                                     </svg>[m
+[32m+                                     <?php[m
+[32m+                                 }[m
+[32m+                                 ?>[m
+[32m+                             </div>[m
+[32m+                             <div class="d-flex justify-content-between">[m
+[32m+ [m
+[32m+                                 <h4 class="card-title text-primary">[m
+[32m+                                     $[m
+[32m+                                     <?php echo $dataUser["precio"]; ?>[m
+[32m+                                 </h4>[m
+[32m+                                 <h4 class="card-title text-success">[m
+[32m+                                     %[m
+[32m+                                     <?php echo $dataUser["descuento"]; ?>[m
+[32m+                                 </h4>[m
+[32m+                             </div>[m
+[32m+                             <p class="card-text">[m
+[32m+                                 <?php echo $dataUser["descripcion"]; ?>[m
+[32m+                             </p>[m
+[32m+                             <a href=<?php echo "detalleArticulo.php?id_art=" . $dataUser["id_prod"]; ?>[m
+[32m+                                 class="btn text-light">Ver[m
+[32m+                                 Detalles</a>[m
+[32m+ [m
+[32m+                         </div>[m
+[32m+                     </div>[m
+[32m+                 </div>[m
+[32m+ [m
+[32m+                 <?php[m
+[32m++>>>>>>> 159bdcda60e67860369f168d80fd81f9f0eb3430[m
+              }[m
+              ?>[m
+          </div>[m
+[1mdiff --cc includes/pageConfirmar1.php[m
+[1mindex eb3ee0a,5fa9c20..0000000[m
+[1m--- a/includes/pageConfirmar1.php[m
+[1m+++ b/includes/pageConfirmar1.php[m
+[36m@@@ -1,76 -1,100 +1,178 @@@[m
+  <?php[m
+[32m++<<<<<<< HEAD[m
+[32m +include "header.php";[m
+[32m +?>[m
+[32m +<div class=" d-flex justify-content-center">[m
+[32m +[m
+[32m +    <div class="container m-lg-5 mt-5 mt-sm-5 mb-5 mb-sm-5 ">[m
+[32m +        <div class="row d-flex align-items-center">[m
+[32m +            <h4 class="mb-3">Confirmar compra</h4>[m
+[32m +            <form class="needs-validation" novalidate="">[m
+[32m +                <div class="row">[m
+[32m +                    <label for="firstName">Nombre y Apellidos</label>[m
+[32m +                    <input type="text" class="form-control" id="Name" placeholder="" value="" required="">[m
+[32m +                    <div class="invalid-feedback">[m
+[32m +                        Valid first name is required.[m
+[32m +                    </div>[m
+[32m +                </div>[m
+[32m +[m
+[32m +        </div>[m
+[32m +        <div class="mb-3">[m
+[32m +            <label for="address">Dirección</label>[m
+[32m +            <input type="text" class="form-control" id="address" placeholder="Calle principal" required="">[m
+[32m +            <div class="invalid-feedback">[m
+[32m +                Please enter your shipping address.[m
+[32m +            </div>[m
+[32m +            <div class="row">[m
+[32m +                <div class="col-md-6 mb-3">[m
+[32m +                    <label for="numint">No. Int</label>[m
+[32m +                    <input type="text" class="form-control" id="Noint" placeholder="" value="" required="">[m
+[32m +                    <div class="invalid-feedback">[m
+[32m +                        Valid no int is required.[m
+[32m +                    </div>[m
+[32m +                </div>[m
+[32m +                <div class="col-md-6 mb-3">[m
+[32m +                    <label for="numext">No. Ext</label>[m
+[32m +                    <input type="text" class="form-control" id="Noext" placeholder="" value="" required="">[m
+[32m +                    <div class="invalid-feedback">[m
+[32m +                        Valid no ext is required.[m
+[32m +                    </div>[m
+[32m +                </div>[m
+[32m +            </div>[m
+[32m +[m
+[32m +            <div class="mb-3">[m
+[32m +                <label for="email">Telefono <span class="text-muted"></span></label>[m
+[32m +                <input type="email" class="form-control" id="telefono">[m
+[32m +                <div class="invalid-feedback">[m
+[32m +                    Please enter a valid telefono for shipping updates.[m
+[32m +                </div>[m
+[32m +            </div>[m
+[32m +            <div class="row">[m
+[32m +                <div class="col-md-5 mb-3">[m
+[32m +                    <label for="country">Método de pago</label>[m
+[32m +                    <select class="custom-select d-block w-100" id="country" required="">[m
+[32m +                        <option value="">Elegir...</option>[m
+[32m +                        <option>Efectivo</option>[m
+[32m +                        <option>Tarjeta</option>[m
+[32m +                    </select>[m
+[32m +                    <div class="invalid-feedback">[m
+[32m +                        Please select a valid country.[m
+[32m +                    </div>[m
+[32m +                </div>[m
+[32m +                <div class="col-md-4 mb-3">[m
+[32m +                    <label for="state">Método de entrega</label>[m
+[32m +                    <select class="custom-select d-block w-100" id="state" required="">[m
+[32m +                        <option value="">Elegir...</option>[m
+[32m +                        <option>Sucursal</option>[m
+[32m +                        <option>Envio a domicilio</option>[m
+[32m +                    </select>[m
+[32m +                    <div class="invalid-feedback">[m
+[32m +                        Please provide a valid state.[m
+[32m +                    </div>[m
+[32m +                </div>[m
+[32m +[m
+[32m +            </div>[m
+[32m +            <hr class="mb-4">[m
+[32m +            <a href="pageConfirmar2.php" class="btn text-light m-3" type="submit">Continuar</a>[m
+[31m-             </form>[m
+[32m++            </form>[m
+[32m++=======[m
+[32m+ session_start();[m
+[32m+ if (!$_SESSION["login"]) {[m
+[32m+     header('location:pageLogin.php?error_session=Favor de Iniciar Sesion!');[m
+[32m+ }[m
+[32m+ include "header.php";[m
+[32m+ ?>[m
+[32m+ <div class="d-flex justify-content-center" style=" margin-top: 150px;">[m
+[32m+     <div class="container m-lg-5 mt-5 mt-sm-5 mb-5 mb-sm-5 ">[m
+[32m+         <div class="row d-flex align-items-center">[m
+[32m+             <div class="col-6 d-none d-sm-none d-md-none d-lg-inline ">[m
+[32m+                 <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">[m
+[32m+                     <div class="carousel-inner rounded-3">[m
+[32m+                         <div class="carousel-item active" style="height: 510px;">[m
+[32m+                             <img src="../resources/imgs/marcara1.jpg" class="d-block w-100 img-fluid " alt="...">[m
+[32m+                         </div>[m
+[32m+                         <div class="carousel-item " style="height: 510px;">[m
+[32m+                             <img src="../resources/imgs/mascara2.jpg" class="d-block w-100 img-fluid " alt="...">[m
+[32m+                         </div>[m
+[32m+                         <div class="carousel-item" style="height: 510px;">[m
+[32m+                             <img src="../resources/imgs/mascara3.webp" class="d-block w-100 img-fluid " alt="...">[m
+[32m+                         </div>[m
+[32m+                     </div>[m
+[32m+                 </div>[m
+[32m+             </div>[m
+[32m+             <div class="col-lg-6" id="pageCompra">[m
+[32m+                 <section class="d-flex justify-content-center">[m
+[32m+                     <h3 class="color-text ">Confirmar Compra</h3>[m
+[32m+                 </section>[m
+[32m+                 <hr>[m
+[32m+ [m
+[32m+                 <div class="d-flex justify-content-center">[m
+[32m+                     <form action="../controllers/finalizarCompra.php" method="POST">[m
+[32m+                         <div class="row">[m
+[32m+                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-3">[m
+[32m+                                 <label for="firstName">Nombre y Apellidos</label>[m
+[32m+                                 <input type="text" class="form-control" id="Name" placeholder="" value="" required="">[m
+[32m+                             </div>[m
+[32m+                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-3">[m
+[32m+ [m
+[32m+                                 <label for="address">Dirección</label>[m
+[32m+                                 <input type="text" class="form-control" id="address" placeholder="Calle principal"[m
+[32m+                                     required="">[m
+[32m+ [m
+[32m+                             </div>[m
+[32m+                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-3">[m
+[32m+                                 <label for="numint">No. Int</label>[m
+[32m+                                 <input type="text" class="form-control" id="Noint" placeholder="" value="" required="">[m
+[32m+ [m
+[32m+                             </div>[m
+[32m+                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-3">[m
+[32m+                                 <label for="numext">No. Ext</label>[m
+[32m+                                 <input type="text" class="form-control" id="Noext" placeholder="" value="" required="">[m
+[32m+                             </div>[m
+[32m+                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-3">[m
+[32m+                                 <label for="tel" class="form-label">Telefono</label>[m
+[32m+                                 <input type="tel" class="form-control" id="telefono">[m
+[32m+                             </div>[m
+[32m+ [m
+[32m+                             <div class="col-12 col-sm-12 col-md-6 col-lg-6  mb-3 d-flex align-items-center">[m
+[32m+                                 <div class="input-group ">[m
+[32m+                                     <label class="input-group-text" for="inputGroupSelect01">Pago</label>[m
+[32m+                                     <select name="typePago" class="form-select" id="inputGroupSelect01">[m
+[32m+                                         <option value="elegir" selected>Elegir..</option>[m
+[32m+                                         <option value="efectivo">Efectivo</option>[m
+[32m+                                         <option value="tarjeta">Tarjeta</option>[m
+[32m+                                     </select>[m
+[32m+                                 </div>[m
+[32m+                             </div>[m
+[32m+                             <div class="col-12 col-sm-12 col-md-6 col-lg-6 mb-3 d-flex align-items-center">[m
+[32m+                                 <div class="input-group ">[m
+[32m+                                     <label class="input-group-text" for="inputGroupSelect01">Entrega</label>[m
+[32m+                                     <select name="typeEntrega" class="form-select" id="inputGroupSelect01">[m
+[32m+                                         <option selected>Elegir..</option>[m
+[32m+                                         <option value="elegir">Sucursal</option>[m
+[32m+                                         <option value="domicilio">Domicilio</option>[m
+[32m+                                     </select>[m
+[32m+                                 </div>[m
+[32m+ [m
+[32m+                             </div>[m
+[32m+                             <input type="text" name="id_usr" hidden value=<?php echo $_GET["id_usr"] ?>>[m
+[32m+                             <input type="text" name="totalprice" hidden value=<?php echo $_GET["totalprice"] ?>>[m
+[32m+ [m
+[32m+                             <div[m
+[32m+                                 class="col-12 col-sm-12 col-md-6 col-lg-6 mb-3 d-flex align-items-center justify-content-center">[m
+[32m+                                 <button class="btn text-light m-3" type="submit">Continuar</button>[m
+[32m+                                 <a href="pageCarrito.php" class="btn text-light m-3">Cancelar</a>[m
+[32m+                             </div>[m
+[32m+                         </div>[m
+[32m+                     </form>[m
+[32m+                 </div>[m
+[32m+             </div>[m
+[32m+ [m
+[32m+         </div>[m
+[32m+     </div>[m
+[32m+ </div>[m
+[32m+ [m
+[32m+ <?php[m
+[32m+ include 'footer.php';[m
+[31m -?>[m
+[32m++?>[m
+[32m++>>>>>>> 159bdcda60e67860369f168d80fd81f9f0eb3430[m
+[1mdiff --cc includes/pageConfirmar2.php[m
+[1mindex 123635a,9c372d9..0000000[m
+[1m--- a/includes/pageConfirmar2.php[m
+[1m+++ b/includes/pageConfirmar2.php[m
+[36m@@@ -1,25 -1,125 +1,151 @@@[m
+  <?php[m
+[32m++<<<<<<< HEAD[m
+[32m +include "header.php";[m
+[32m +?>[m
+[32m +<div class=" d-flex justify-content-center">[m
+[32m +[m
+[32m +    <div class="py-5 text-center">[m
+[32m +        <h2>¿Desea confirmar su compra?</h2>[m
+[32m +[m
+[32m++=======[m
+[32m+ session_start();[m
+[32m+ if (!$_SESSION["login"]) {[m
+[32m+     header('location:pageLogin.php?error_session=Favor de Iniciar Sesion!');[m
+[32m+ }[m
+[32m+ include "header.php";[m
+[32m+ ?>[m
+[32m+ <div class=" d-flex justify-content-center" style=" margin-top: 100px;">[m
+[32m+ [m
+[32m+     <div class="py-5 text-center color-text">[m
+[32m+         <h2>¿Desea confirmar su compra?</h2>[m
+[32m+         <?php[m
+[32m+         if ($_GET["typePago"] == "Efectivo") {[m
+[32m+             $caracteres_permitidos = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';[m
+[32m+             $longitud = 12;[m
+[32m+             ?>[m
+[32m+             <h4 class="color-text">Usted para en ventanilla con el siguiente codigo</h4>[m
+[32m+             <h3 class="text-success">[m
+[32m+ [m
+[32m+                 <?php echo substr(str_shuffle($caracteres_permitidos), 0, $longitud) ?>[m
+[32m+             </h3>[m
+[32m+ [m
+[32m+             <?php[m
+[32m+         } else {[m
+[32m+             ?>[m
+[32m+             <h4 class="color-text">Usted hizo su pago con la tarjeta:</h4>[m
+[32m+             <h3 class="text-success">[m
+[32m+                 <?php echo $_GET['banco'] ?>[m
+[32m+             </h3>[m
+[32m+             <h3 class="text-success">[m
+[32m+                 <?php echo $_GET['noTarjeta'] ?>[m
+[32m+             </h3>[m
+[32m+             <?php[m
+[32m+         }[m
+[32m+         ?>[m
+[32m++>>>>>>> 159bdcda60e67860369f168d80fd81f9f0eb3430[m
+      </div>[m
+  [m
+  </div>[m
+  <hr class="mb-4">[m
+[32m++<<<<<<< HEAD[m
+[32m +[m
+[32m +<div class=" d-flex justify-content-center">[m
+[32m +    <div class="row">[m
+[32m +        <div class="col-md-6 mb-3">[m
+[32m +            <button class="btn text-light m-3k" type="submit">Cancelar</button>[m
+[32m +[m
+[32m +        </div>[m
+[32m +        <div class="col-md-6 mb-3">[m
+[32m +            <a href="pageconfCompra.php" class="btn text-light m-3" type="submit">si</a>[m
+[32m +        </div>[m
+[32m +[m
+[32m +    </div>[m
+[31m- </div>[m
+[32m++</div>[m
+[32m++=======[m
+[32m+ <section class="container ">[m
+[32m+     <div class="d-flex justify-content-center">[m
+[32m+ [m
+[32m+ [m
+[32m+         <div class="card " style="max-width: 500px;">[m
+[32m+             <div class="card-header color-text">[m
+[32m+                 Resumen de Compra[m
+[32m+             </div>[m
+[32m+             <div class="card-body">[m
+[32m+                 <h5 class="card-title color-text">Productos:</h5>[m
+[32m+                 <table class="table">[m
+[32m+                     <thead>[m
+[32m+                         <tr>[m
+[32m+                             <th class="color-text" scope="col">#</th>[m
+[32m+                             <th class="color-text" scope="col">Producto</th>[m
+[32m+                             <th class="color-text" scope="col">Cantidad</th>[m
+[32m+                             <th class="color-text" scope="col">precio x cantidad</th>[m
+[32m+                         </tr>[m
+[32m+                     </thead>[m
+[32m+                     <tbody>[m
+[32m+                         <?php[m
+[32m+                         include("../controllers/conection_db.php");[m
+[32m+                         $con = conectar();[m
+[32m+                         $totalPrice = 0;[m
+[32m+                         $sqlCart = "select p.nombre, p.precio, pc.cantidad[m
+[32m+                         from productosencarrito as pc[m
+[32m+                         join productos as p[m
+[32m+                         on pc.id_prod=p.id_prod[m
+[32m+                         join carrito as c[m
+[32m+                         on pc.id_carrito=c.id_carrito[m
+[32m+                         where c.id_usr = " . $_SESSION['id_usr'] . " and c.status='active';";[m
+[32m+                         $resultCart = mysqli_query($con, $sqlCart);[m
+[32m+                         $numItem = 0;[m
+[32m+                         while ($dataCart = mysqli_fetch_array($resultCart)) {[m
+[32m+                             $totalPrice = (intval($dataCart["precio"]) * intval($dataCart["cantidad"])) + $totalPrice;[m
+[32m+ [m
+[32m+                             $numItem++;[m
+[32m+                             ?>[m
+[32m+                             <tr>[m
+[32m+                                 <th class="color-text" scope="row">[m
+[32m+                                     <?php echo $numItem ?>[m
+[32m+                                 </th>[m
+[32m+                                 <td class="color-text">[m
+[32m+                                     <?php echo $dataCart["nombre"]; ?>[m
+[32m+                                 </td>[m
+[32m+                                 <td class="color-text">[m
+[32m+                                     <?php echo $dataCart["cantidad"]; ?>[m
+[32m+                                 </td>[m
+[32m+                                 <td class="color-text">[m
+[32m+                                     <?php echo "$" . intval($dataCart["precio"]) * intval($dataCart["cantidad"]) ?>[m
+[32m+ [m
+[32m+                                 </td>[m
+[32m+                             </tr>[m
+[32m+ [m
+[32m+ [m
+[32m+                             <?php[m
+[32m+                         }[m
+[32m+                         ?>[m
+[32m+ [m
+[32m+                         </ul>[m
+[32m+                     </tbody>[m
+[32m+                 </table>[m
+[32m+                 <h5 class="card-total d-flex justify-content-end text-danger">Total:[m
+[32m+                     <?php echo " $" . $totalPrice; ?>[m
+[32m+                 </h5>[m
+[32m+             </div>[m
+[32m+         </div>[m
+[32m+     </div>[m
+[32m+ [m
+[32m+     <br>[m
+[32m+     <div class=" d-flex justify-content-center">[m
+[32m+         <form action="../controllers/confirmarPago.php" method="POST">[m
+[32m+             <input type="hidden" name="id_usr" id="id_usr" value=<?php echo $_GET["id_usr"]; ?>>[m
+[32m+             <input type="hidden" name="totalPrice" id="totalPrice" value=<?php echo $_GET["totalprice"]; ?>>[m
+[32m+ [m
+[32m+             <div class="row">[m
+[32m+                 <div class="col-md-6 mb-3">[m
+[32m+                     <a href="pageCarrito.php" class="btn text-light m-3">Cancelar</a>[m
+[32m+                 </div>[m
+[32m+                 <div class="col-md-6 mb-3">[m
+[32m+                     <button class="btn text-light m-3" type="submit">Confirmar</button>[m
+[32m+                 </div>[m
+[32m+             </div>[m
+[32m+         </form>[m
+[32m+     </div>[m
+[31m -</section>[m
+[32m++</section>[m
+[32m++>>>>>>> 159bdcda60e67860369f168d80fd81f9f0eb3430[m
+[1mdiff --cc includes/pageRegistroUser.php[m
+[1mindex 337a0b9,d2decc3..0000000[m
+[1m--- a/includes/pageRegistroUser.php[m
+[1m+++ b/includes/pageRegistroUser.php[m
+[36m@@@ -1,7 -1,7 +1,11 @@@[m
+  <?php[m
+  include "header.php";[m
+  ?>[m
+[32m++<<<<<<< HEAD[m
+[32m +<div class="d-flex justify-content-center">[m
+[32m++=======[m
+[32m+ <div class="d-flex justify-content-center" style=" margin-top: 100px;">[m
+[32m++>>>>>>> 159bdcda60e67860369f168d80fd81f9f0eb3430[m
+      <div class="container m-lg-5 mt-5 mt-sm-5 mb-5 mb-sm-5 ">[m
+          <div class="row d-flex align-items-center">[m
+              <div class="col-6 d-none d-sm-none d-md-none d-lg-inline ">[m
+[36m@@@ -20,107 -20,126 +24,230 @@@[m
+                  </div>[m
+              </div>[m
+              <div class="col-lg-6" id="pageLogin">[m
+[32m++<<<<<<< HEAD[m
+[32m +                <section class="d-flex justify-content-center">[m
+[32m +                    <h3 class="color-text ">Resgistro</h3>[m
+[32m +                </section>[m
+[32m +                <hr>[m
+[32m +                <?php[m
+[32m +                if (isset($_GET["error_login"])) {[m
+[32m +                    ?>[m
+[32m +                <span class="alert-danger">[m
+[32m +                    <?php[m
+[32m +                        echo $_GET["error_login"][m
+[32m +                            ?>[m
+[32m +                </span>[m
+[32m +[m
+[32m +                <?php[m
+[32m +                }[m
+[32m +                ?>[m
+[32m +                <div class="d-flex justify-content-center">[m
+[32m +                    <form method="POST" action="../controllers/registroUser.php" class="d-flex">[m
+[32m +                        <div class="row d-flex justify-content-center">[m
+[32m +                            <div class="mb-3 col-8 col-sm-8 col-md-6 col-lg-6">[m
+[32m +                                <label for="name" class="form-label color-text">Nombre</label>[m
+[32m +                                <input class="form-control" type="text" name="name" id="name">[m
+[32m +                            </div>[m
+[32m +                            <?php[m
+[32m +                            if (isset($_GET["error_email"])) {[m
+[32m +                                ?>[m
+[32m +                            <span class="alert-danger">[m
+[32m +                                <?php[m
+[32m +                                    echo $_GET["error_email"][m
+[32m +                                        ?>[m
+[32m +                            </span>[m
+[32m +[m
+[32m +                            <?php[m
+[32m +                            }[m
+[32m +                            ?>[m
+[32m +                            <div class="mb-3 col-8 col-sm-8 col-md-6 col-lg-6">[m
+[32m +                                <label for="app" class="form-label color-text">Apellidos</label>[m
+[32m +                                <input class="form-control" type="text" name="app" id="app">[m
+[32m +                            </div>[m
+[32m +                            <?php[m
+[32m +                            if (isset($_GET["error_email"])) {[m
+[32m +                                ?>[m
+[32m +                            <span class="alert-danger">[m
+[32m +                                <?php[m
+[32m +                                    echo $_GET["error_email"][m
+[32m +                                        ?>[m
+[32m +                            </span>[m
+[32m +[m
+[32m +                            <?php[m
+[32m +                            }[m
+[32m +                            ?>[m
+[32m +                            <div class="mb-3 col-8 col-sm-8 col-md-6 col-lg-6">[m
+[32m +                                <label for="phone" class="form-label color-text">Telefono</label>[m
+[32m +                                <input class="form-control" type="tel" name="phone" id="phone">[m
+[32m +                            </div>[m
+[32m +                            <?php[m
+[32m +                            if (isset($_GET["error_email"])) {[m
+[32m +                                ?>[m
+[32m +                            <span class="alert-danger">[m
+[32m +                                <?php[m
+[32m +                                    echo $_GET["error_email"][m
+[32m +                                        ?>[m
+[32m +                            </span>[m
+[32m +[m
+[32m +                            <?php[m
+[32m +                            }[m
+[32m +                            ?>[m
+[32m +                            <div class="mb-3 col-8 col-sm-8 col-md-6 col-lg-6">[m
+[32m +                                <label for="email" class="form-label color-text">Correo</label>[m
+[32m +                                <input class="form-control" type="email" name="email" id="email">[m
+[32m +                            </div>[m
+[32m +                            <?php[m
+[32m +                            if (isset($_GET["error_email"])) {[m
+[32m +                                ?>[m
+[32m +                            <span class="alert-danger">[m
+[32m +                                <?php[m
+[32m +                                    echo $_GET["error_email"][m
+[32m +                                        ?>[m
+[32m +                            </span>[m
+[32m +[m
+[32m +                            <?php[m
+[32m +                            }[m
+[32m +                            ?>[m
+[32m +                            <div class="mb-3 col-8 col-sm-8 col-md-6 col-lg-6">[m
+[32m +                                <label for="age" class="form-label color-text">Edad</label>[m
+[32m +                                <input class="form-control" type="text" name="age" id="age">[m
+[32m +                            </div>[m
+[32m +                            <?php[m
+[32m +                            if (isset($_GET["error_email"])) {[m
+[32m +                                ?>[m
+[32m +                            <span class="alert-danger">[m
+[32m +                                <?php[m
+[32m +                                    echo $_GET["error_email"][m
+[32m +                                        ?>[m
+[32m +                            </span>[m
+[32m +[m
+[32m +                            <?php[m
+[32m +                            }[m
+[32m +                            ?>[m
+[32m +                            <div class=" mb-3 col-8 col-sm-8 col-md-6 col-lg-6">[m
+[32m +                                <label for="pwd" class="form-label color-text">Contraseña</label>[m
+[32m++=======[m
+[32m+                 <section class="d-flex justify-content-center flex-column">[m
+[32m+                     <h3 class="color-text d-block">Resgistro</h3>[m
+[32m+                     <?php[m
+[32m+                     if (isset($_GET["error_userExist"])) {[m
+[32m+                         ?>[m
+[32m+                         <span class="alert-danger d-block">[m
+[32m+                             <?php[m
+[32m+                             echo $_GET["error_userExist"][m
+[32m+                                 ?>[m
+[32m+                         </span>[m
+[32m+ [m
+[32m+                         <?php[m
+[32m+                     }[m
+[32m+                     ?>[m
+[32m+                 </section>[m
+[32m+                 <hr>[m
+[32m+                 <div class="d-flex justify-content-center">[m
+[32m+                     <form method="POST" action="../controllers/registroUser.php" class="d-flex">[m
+[32m+ [m
+[32m+                         <div class="row d-flex justify-content-center">[m
+[32m+                             <div class="mb-3 col-8 col-sm-8 col-md-6 col-lg-6">[m
+[32m+                                 <label for="name" class="form-label color-text d-block">Nombre</label>[m
+[32m+                                 <?php[m
+[32m+                                 if (isset($_GET["error_name"])) {[m
+[32m+                                     ?>[m
+[32m+                                     <span class="alert-danger d-block">[m
+[32m+                                         <?php[m
+[32m+                                         echo $_GET["error_name"][m
+[32m+                                             ?>[m
+[32m+                                     </span>[m
+[32m+ [m
+[32m+                                     <?php[m
+[32m+                                 }[m
+[32m+                                 ?>[m
+[32m+                                 <input class="form-control" type="text" name="name" id="name">[m
+[32m+                             </div>[m
+[32m+ [m
+[32m+                             <div class="mb-3 col-8 col-sm-8 col-md-6 col-lg-6">[m
+[32m+                                 <label for="app" class="form-label color-text">Apellidos</label>[m
+[32m+                                 <?php[m
+[32m+                                 if (isset($_GET["error_app"])) {[m
+[32m+                                     ?>[m
+[32m+                                     <span class="alert-danger d-block">[m
+[32m+                                         <?php[m
+[32m+                                         echo $_GET["error_app"][m
+[32m+                                             ?>[m
+[32m+                                     </span>[m
+[32m+ [m
+[32m+                                     <?php[m
+[32m+                                 }[m
+[32m+                                 ?>[m
+[32m+                                 <input class="form-control" type="text" name="app" id="app">[m
+[32m+                             </div>[m
+[32m+ [m
+[32m+                             <div class="mb-3 col-8 col-sm-8 col-md-6 col-lg-6">[m
+[32m+                                 <label for="phone" class="form-label color-text">Telefono</label>[m
+[32m+                                 <?php[m
+[32m+                                 if (isset($_GET["error_phone"])) {[m
+[32m+                                     ?>[m
+[32m+                                     <span class="alert-danger d-block">[m
+[32m+                                         <?php[m
+[32m+                                         echo $_GET["error_phone"][m
+[32m+                                             ?>[m
+[32m+                                     </span>[m
+[32m+ [m
+[32m+                                     <?php[m
+[32m+                                 }[m
+[32m+                                 ?>[m
+[32m+                                 <input class="form-control" type="tel" name="phone" id="phone">[m
+[32m+                             </div>[m
+[32m+ [m
+[32m+                             <div class="mb-3 col-8 col-sm-8 col-md-6 col-lg-6">[m
+[32m+                                 <label for="email" class="form-label color-text">Correo</label>[m
+[32m+                                 <?php[m
+[32m+                                 if (isset($_GET["error_email"])) {[m
+[32m+                                     ?>[m
+[32m+                                     <span class="alert-danger d-block">[m
+[32m+                                         <?php[m
+[32m+                                         echo $_GET["error_email"][m
+[32m+                                             ?>[m
+[32m+                                     </span>[m
+[32m+ [m
+[32m+                                     <?php[m
+[32m+                                 }[m
+[32m+                                 ?>[m
+[32m+                                 <input class="form-control" type="email" name="email" id="email">[m
+[32m+                             </div>[m
+[32m+ [m
+[32m+                             <div class="mb-3 col-8 col-sm-8 col-md-6 col-lg-6">[m
+[32m+                                 <label for="age" class="form-label color-text">Edad</label>[m
+[32m+                                 <?php[m
+[32m+                                 if (isset($_GET["error_age"])) {[m
+[32m+                                     ?>[m
+[32m+                                     <span class="alert-danger d-block">[m
+[32m+                                         <?php[m
+[32m+                                         echo $_GET["error_age"][m
+[32m+                                             ?>[m
+[32m+                                     </span>[m
+[32m+ [m
+[32m+                                     <?php[m
+[32m+                                 }[m
+[32m+                                 ?>[m
+[32m+                                 <input class="form-control" type="text" name="age" id="age">[m
+[32m+                             </div>[m
+[32m+ [m
+[32m+ [m
+[32m+                             <div class=" mb-3 col-8 col-sm-8 col-md-6 col-lg-6">[m
+[32m+                                 <label for="pwd" class="form-label color-text">Contraseña</label>[m
+[32m+                                 <?php[m
+[32m+                                 if (isset($_GET["error_pwd"])) {[m
+[32m+                                     ?>[m
+[32m+                                     <span class="alert-danger d-block">[m
+[32m+                                         <?php[m
+[32m+                                         echo $_GET["error_pwd"][m
+[32m+                                             ?>[m
+[32m+                                     </span>[m
+[32m+ [m
+[32m+                                     <?php[m
+[32m+                                 }[m
+[32m+                                 ?>[m
+[32m++>>>>>>> 159bdcda60e67860369f168d80fd81f9f0eb3430[m
+                                  <div class="input-group">[m
+                                      <input class="form-control" type="password" name="pwd" id="pwd">[m
+                                      <button type="button" class="btn text-light"><svg xmlns="http://www.w3.org/2000/svg"[m
+[36m@@@ -133,18 -152,7 +260,22 @@@[m
+                                          </svg></button>[m
+                                  </div>[m
+                              </div>[m
+[32m++<<<<<<< HEAD[m
+[32m +                            <?php[m
+[32m +                            if (isset($_GET["error_pass"])) {[m
+[32m +                                ?>[m
+[32m +                            <span class="alert-danger">[m
+[32m +                                <?php[m
+[32m +                                    echo $_GET["error_pass"][m
+[32m +                                        ?>[m
+[32m +                            </span>[m
+[32m +[m
+[32m +                            <?php[m
+[32m +                            }[m
+[32m +                            ?>[m
+[32m++=======[m
+[32m+ [m
+[32m++>>>>>>> 159bdcda60e67860369f168d80fd81f9f0eb3430[m
+                              <div class="mb-3 col-8 col-sm-8 col-md-6 col-lg-6">[m
+                                  <label for="pwdConfirm" class="form-label color-text">Confirmar contraseña</label>[m
+                                  <div class="input-group">[m
+[36m@@@ -160,15 -168,15 +291,27 @@@[m
+                                  </div>[m
+                              </div>[m
+                              <?php[m
+[32m++<<<<<<< HEAD[m
+[32m +                            if (isset($_GET["error_pass"])) {[m
+[32m +                                ?>[m
+[32m +                            <span class="alert-danger">[m
+[32m +                                <?php[m
+[32m +                                    echo $_GET["error_pass"][m
+[32m +                                        ?>[m
+[32m +                            </span>[m
+[32m +[m
+[32m +                            <?php[m
+[32m++=======[m
+[32m+                             if (isset($_GET["error_pwdConf"])) {[m
+[32m+                                 ?>[m
+[32m+                                 <span class="alert-danger d-block ">[m
+[32m+                                     <?php[m
+[32m+                                     echo $_GET["error_pwdConf"][m
+[32m+                                         ?>[m
+[32m+                                 </span>[m
+[32m+ [m
+[32m+                                 <?php[m
+[32m++>>>>>>> 159bdcda60e67860369f168d80fd81f9f0eb3430[m
+                              }[m
+                              ?>[m
+  [m
+[1mdiff --cc includes/pagecancCompra.php[m
+[1mindex d84e47a,1461ab0..0000000[m
+[1m--- a/includes/pagecancCompra.php[m
+[1m+++ b/includes/pagecancCompra.php[m
+[36m@@@ -3,7 -3,7 +3,11 @@@[m [minclude "../controllers/login.php"[m
+  include "header.php";[m
+  ?>[m
+  [m
+[32m++<<<<<<< HEAD[m
+[32m +<div class=" d-flex justify-content-center">[m
+[32m++=======[m
+[32m+ <div class=" d-flex justify-content-center" style=" margin-top: 100px;">[m
+[32m++>>>>>>> 159bdcda60e67860369f168d80fd81f9f0eb3430[m
+  [m
+      <div class="py-5 text-center">[m
+          <h2>Su compra ha sido cancelada</h2>[m
+[36m@@@ -20,6 -20,6 +24,12 @@@[m
+          <div class="col-md-5 mb-3">[m
+              <button class="btn text-light m-3" type="submit">Ver catalogo</button>[m
+          </div>[m
+[32m++<<<<<<< HEAD[m
+[32m +        [m
+[32m +    </div>[m
+[32m +</div>[m
+[32m++=======[m
+[32m+ [m
+[32m+     </div>[m
+[31m -</div>[m
+[32m++</div>[m
+[32m++>>>>>>> 159bdcda60e67860369f168d80fd81f9f0eb3430[m
+[1mdiff --cc includes/pageconfCompra.php[m
+[1mindex 7b469eb,395f509..0000000[m
+[1m--- a/includes/pageconfCompra.php[m
+[1m+++ b/includes/pageconfCompra.php[m
+[36m@@@ -2,7 -2,7 +2,11 @@@[m
+  include "header.php";[m
+  ?>[m
+  [m
+[32m++<<<<<<< HEAD[m
+[32m +<div class=" d-flex justify-content-center">[m
+[32m++=======[m
+[32m+ <div class=" d-flex justify-content-center" style=" margin-top: 150px;">[m
+[32m++>>>>>>> 159bdcda60e67860369f168d80fd81f9f0eb3430[m
+  [m
+      <div class="py-5 text-center">[m
+          <h2>Su compra ha sido confirmada</h2>[m
+[1mdiff --cc includes/pagepagoTarjeta.php[m
+[1mindex 612b3db,471ac5a..0000000[m
+[1m--- a/includes/pagepagoTarjeta.php[m
+[1m+++ b/includes/pagepagoTarjeta.php[m
+[36m@@@ -1,33 -1,58 +1,93 @@@[m
+  <?php[m
+[32m++<<<<<<< HEAD[m
+[32m +include "../controllers/login.php";[m
+[32m +include "header.php";[m
+[32m +?>[m
+[32m +[m
+[32m +<div class=" d-flex justify-content-center">[m
+[32m +[m
+[32m +    <div class="container m-lg-5 mt-5 mt-sm-5 mb-5 mb-sm-5 ">[m
+[32m +        <div class="row d-flex align-items-center">[m
+[32m +            <h4 class="mb-3">Pago con Tarjeta</h4>[m
+[32m +            <form class="needs-validation" novalidate="">[m
+[32m +            <hr class="mb-4">[m
+[32m +                <div class="row">[m
+[32m +                    <div class="col-md-6 mb-3">[m
+[32m +                        <label for="cc-name">Nombre en la tarjeta</label>[m
+[32m +                        <input type="text" class="form-control" id="cc-name" placeholder="" required="">[m
+[32m +                        <small class="text-muted">Nombre completo como se muestra en la tarjeta</small>[m
+[32m +                        <div class="invalid-feedback">[m
+[32m +                            Name on card is required[m
+[32m +                        </div>[m
+[32m +                    </div>[m
+[32m +                    <div class="col-md-6 mb-3">[m
+[32m +                        <label for="cc-number">Número de Tarjeta de Crédito</label>[m
+[32m +                        <input type="text" class="form-control" id="cc-number" placeholder="" required="">[m
+[32m +                        <div class="invalid-feedback">[m
+[32m +                            Credit card number is required[m
+[32m +                        </div>[m
+[32m +                    </div>[m
+[32m +                </div>[m
+[32m +               [m
+[32m +            <hr class="mb-4">[m
+[32m +                <button class="btn text-light m-3" type="submit">Continuar</button>[m
+[32m +            </form>[m
+[32m++=======[m
+[32m+ session_start();[m
+[32m+ if (!$_SESSION["login"]) {[m
+[32m+     header('location:pageLogin.php?error_session=Favor de Iniciar Sesion!');[m
+[32m+ }[m
+[32m+ include "header.php";[m
+[32m+ ?>[m
+[32m+ [m
+[32m+ <div class=" d-flex justify-content-center" style=" margin-top: 150px;">[m
+[32m+ [m
+[32m+     <div class="container m-lg-5 mt-5 mt-sm-5 mb-5 mb-sm-5 d-flex justify-content-center">[m
+[32m+         <div class="row d-flex align-items-center col-6">[m
+[32m+             <h4 class="mb-3">Pago con Tarjeta</h4>[m
+[32m+ [m
+[32m+             <form class="needs-validation d-flex flex-column" novalidate="" method="POST"[m
+[32m+                 action="../controllers/pagoTarjeta.php">[m
+[32m+                 <hr class="mb-4">[m
+[32m+                 <div class="row">[m
+[32m+                     <?php[m
+[32m+                 if (isset($_GET["error_pago"])) {[m
+[32m+                     ?>[m
+[32m+                     <span class="alert-danger">[m
+[32m+                         <?php[m
+[32m+                         echo $_GET["error_pago"][m
+[32m+                             ?>[m
+[32m+                     </span>[m
+[32m+ [m
+[32m+                     <?php[m
+[32m+                 }[m
+[32m+                 ?>[m
+[32m+                     <div class="input-group mb-3 col-md-6 col-lg-6">[m
+[32m+ [m
+[32m+                         <label class="input-group-text" for="inputGroupSelect01">Selecciones su Banco:</label>[m
+[32m+                         <select name="banco" class="form-select" id="inputGroupSelect01">[m
+[32m+                             <option selected>Elegir..</option>[m
+[32m+                             <option value="Azteca">Azteca</option>[m
+[32m+                             <option value="Bancommer">Bancommer</option>[m
+[32m+                         </select>[m
+[32m+                     </div>[m
+[32m+                     <div class=" mb-3">[m
+[32m+                         <label for="cc-number">Número de Tarjeta </label>[m
+[32m+                         <input type="text" name="tarjeta" class="form-control" id="cc-number" placeholder=""[m
+[32m+                             required="">[m
+[32m+                     </div>[m
+[32m+                 </div>[m
+[32m+                 <input type="text" name="id_usr" hidden value=<?php echo $_GET["id_usr"] ?>>[m
+[32m+                 <input type="text" name="totalprice" hidden value=<?php echo $_GET["totalprice"] ?>>[m
+[32m+                 <input type="text" name="typePago" hidden value=<?php echo $_GET["typePago"] ?>>[m
+[32m+ [m
+[32m+ [m
+[32m+                 <div class="col-4 d-flex justify-content-center">[m
+[32m+                     <button class="btn text-light m-3" type="submit">Continuar</button>[m
+[32m+                     <a href="pageCarrito.php" class="btn text-light m-3" type="submit">Cancelar</a>[m
+[32m+                 </div>[m
+[32m+ [m
+[32m+             </form>[m
+[32m+         </div>[m
+[31m -    </div>[m
+[32m++    </div>[m
+[32m++>>>>>>> 159bdcda60e67860369f168d80fd81f9f0eb3430[m
+[1mdiff --cc js/contadorArticle.js[m
+[1mindex 3547e02,e03c8ce..0000000[m
+[1m--- a/js/contadorArticle.js[m
+[1m+++ b/js/contadorArticle.js[m
+[36m@@@ -9,8 -9,9 +9,14 @@@[m [mfunction restar() [m
+  [m
+  function actualizar(num) {[m
+    var txt = document.getElementById("contadorArticle");[m
+[32m++<<<<<<< HEAD[m
+[32m +  txt.innerHTML = contador;[m
+[32m +  //   if (num > 0) {[m
+[32m++=======[m
+[32m+   // txt.innerHTML = contador;[m
+[32m+ [m
+[32m+   txt.value(contador); //   if (num > 0) {[m
+[32m++>>>>>>> 159bdcda60e67860369f168d80fd81f9f0eb3430[m
+    //     txt.style.backgroundColor = "red";[m
+    //   }[m
+  }[m
+[1mdiff --cc styles/styles.css[m
+[1mindex 548a4a0,0d6af07..0000000[m
+[1m--- a/styles/styles.css[m
+[1m+++ b/styles/styles.css[m
+[36m@@@ -50,69 -50,3 +50,72 @@@[m
+  .modal-content {[m
+    border-radius: 30px !important;[m
+  }[m
+[32m++<<<<<<< HEAD[m
+[32m +[m
+[32m +[m
+[32m +.content{[m
+[32m +  max-width: 1170px;[m
+[32m +  margin-left: auto;[m
+[32m +  margin-right: auto;[m
+[32m +  padding: 1.5rem;[m
+[32m +}[m
+[32m +[m
+[32m +.content h2{[m
+[32m +  color: var(--Orange);[m
+[32m +  font-size: 2rem;[m
+[32m +}[m
+[32m +[m
+[32m +[m
+[32m +.container-form{[m
+[32m +  box-shadow: 0 0 20px 0 black;[m
+[32m +  display: grid;[m
+[32m +}[m
+[32m +/*Estilos general formulario*/[m
+[32m +.container-form > * {[m
+[32m +  padding: 1rem;[m
+[32m +[m
+[32m +}[m
+[32m +/*Estilos boton*/[m
+[32m +.container-form .btn-env{[m
+[32m +  padding: 15px;[m
+[32m +  font-size: 16px;[m
+[32m +  border: none;[m
+[32m +  outline: 0%;[m
+[32m +  background-color: var(--Orange);[m
+[32m +  color: white;[m
+[32m +  border-radius: 3px;[m
+[32m +  cursor: pointer;[m
+[32m +  transition: all 300ms ease;[m
+[32m +  [m
+[32m +}[m
+[32m +[m
+[32m +/*Estilos input*/[m
+[32m +.container-form form input{[m
+[32m +  width: auto;[m
+[32m +  padding:  .7em;[m
+[32m +  border: none;[m
+[32m +  border-bottom: 1px solid;[m
+[32m +  outline: 0;[m
+[32m +}[m
+[32m +[m
+[32m +/*Estilos comentarios*/[m
+[32m +.container-form form textarea{[m
+[32m +  width: 85%;[m
+[32m +  margin-top: .5rem;[m
+[32m +[m
+[32m +}[m
+[32m +[m
+[32m +/*Medias Querys*/[m
+[32m +[m
+[32m +@media (min-width: 471px){[m
+[32m +  .container-form form textarea{[m
+[32m +    width: 60%;[m
+[32m +  }[m
+[32m +[m
+[32m +  .container-form form input{[m
+[32m +    width: 50%;[m
+[32m +  }[m
+[32m +[m
+[31m- }[m
+[32m++}[m
+[32m++=======[m
+[32m++>>>>>>> 159bdcda60e67860369f168d80fd81f9f0eb3430[m

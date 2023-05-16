@@ -1,7 +1,7 @@
 <?php
 include "header.php";
 ?>
-<div class="d-flex justify-content-center">
+<div class="d-flex justify-content-center" style=" margin-top: 100px;">
     <div class="container m-lg-5 mt-5 mt-sm-5 mb-5 mb-sm-5 ">
         <div class="row d-flex align-items-center">
             <div class="col-6 d-none d-sm-none d-md-none d-lg-inline ">
