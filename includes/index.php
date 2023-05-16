@@ -8,13 +8,13 @@ include 'header.php';
         <?php
         if (isset($_GET["user"])) {
             ?>
-            <h3 class="color-text d-none d-sm-none d-md-inline d-lg-inline">
-                <?php
+        <h3 class="color-text d-none d-sm-none d-md-inline d-lg-inline">
+            <?php
                 echo "¡Bienvenido " . $_GET["user"] . "!"
                     ?>
-            </h3>
+        </h3>
 
-            <?php
+        <?php
         }
         ?>
         <div>
@@ -46,16 +46,24 @@ include 'header.php';
             <?php
             for ($i = 0; $i < 10; $i++) {
                 ?>
-                <div class="card m-3" style="min-width: 17rem; max-width: 17rem;">
-                    <img src="../resources/imgs/mascara3.png" class="card-img-top" alt="...">
-                    <div class="card-body">
+
+            <div class="card m-3 color-text " style="max-width: 18rem;">
+                <div class="row ">
+
+                    <img src="../resources/imgs/mascara3.webp" class="card-img-top " alt="...">
+
+                    <div class="card-body col-7">
                         <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the
                             card's content.</p>
-                        <a href="#" class="btn text-light">Go somewhere</a>
+                        <a href="detalleArticulo.php" class="btn text-light">Ver Detalles</a>
+
                     </div>
                 </div>
-                <?php
+            </div>
+
+            <?php
             }
             ?>
         </div>
